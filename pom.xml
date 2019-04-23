@@ -8,10 +8,10 @@
 		<version>1.5.10.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.benjamin.wte</groupId>
+	<groupId>com.benjamin.hcc</groupId>
 	<artifactId>benjamin</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>wte</name>
+	<name>hcc</name>
 	<description>what to eat</description>
 
 	<properties>
