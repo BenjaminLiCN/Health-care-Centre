@@ -16,3 +16,5 @@ npm install
 npm run
 ```
 to deploy the front end to your localhost
+
+The gulpfile.js will readin all the necessary dependencies like css, scss, js files and generate a vendor folder under the root directory. You should start looking at main.js to understand how it works.
