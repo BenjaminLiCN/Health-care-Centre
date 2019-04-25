@@ -33,15 +33,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/").permitAll()
                 .antMatchers("/user").permitAll()
                 .antMatchers("/user/login").permitAll()
+                .antMatchers("/booking/create").permitAll()
+                .antMatchers("/booking/confirm").permitAll()
+                .antMatchers("/booking/cancel").permitAll()
                 .antMatchers("/user/register").permitAll()
                 .antMatchers("/css/**").permitAll()
                 .antMatchers("/imgs/**").permitAll()
                 .antMatchers("/js/**").permitAll()
                 .antMatchers("/lib/**").permitAll()
                 .antMatchers(
-                        "/v2/api-docs",
-                        "/swagger-resources/**",
-                        "/swagger-ui.html",
                         "/configuration/**",
                         "/webjars/**",
                         "/configuration/ui",

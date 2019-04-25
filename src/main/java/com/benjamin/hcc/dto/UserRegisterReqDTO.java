@@ -21,6 +21,33 @@ public class UserRegisterReqDTO extends BaseDTO {
     private String username;
     private String password;
     private String email;
+    private String gender;
+    private String number;
+    private String homeAddress;
+
+    public String getHomeAddress() {
+        return homeAddress;
+    }
+
+    public void setHomeAddress(String homeAddress) {
+        this.homeAddress = homeAddress;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
 
     public String getEmail() {
         return email;

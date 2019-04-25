@@ -35,7 +35,7 @@ public class UserServiceImpl extends BaseServiceImpl implements UserService {
     @Autowired
     private UserRegisterReqMapper userRegisterReqMapper;
     //账号只能是字母开头，允许6-20字节，允许字母数字下划线
-    String usernamePattern = "^[a-zA-Z][a-zA-Z0-9_]{5,19}$";
+    String usernamePattern = "^[a-zA-Z][a-zA-Z0-9_]{4,19}$";
     //密码只能是0~9, a~z, A~Z和下划线，长度为6~20
     String passwordPattern = "[A-Za-z0-9_]{6,20}";
     //标准邮箱格式
@@ -63,7 +63,7 @@ public class UserServiceImpl extends BaseServiceImpl implements UserService {
             claims.put("username", userContextDTO.getUsername());
             claims.put("email", userContextDTO.getEmail());
             claims.put("gender", userContextDTO.getGender());
-            claims.put("phone", userContextDTO.getPhone());
+            claims.put("number", userContextDTO.getNumber());
             token = Jwts.builder()
                     .setSubject(userDO.getId())
                     .setClaims(claims)
@@ -79,8 +79,8 @@ public class UserServiceImpl extends BaseServiceImpl implements UserService {
         if (userRegisterReqDTO.getUsername().equals("") ||userRegisterReqDTO.getEmail().equals("")|| userRegisterReqDTO.getPassword().equals("")) {
             throw new hccException("Register information cannot be null!");
         } else if (!userRegisterReqDTO.getUsername().matches(usernamePattern)){
-            if (userRegisterReqDTO.getUsername().length()<6 || userRegisterReqDTO.getUsername().length()>20){
-                throw new hccException("Username must be 6 to 20 characters!");
+            if (userRegisterReqDTO.getUsername().length()<5 || userRegisterReqDTO.getUsername().length()>20){
+                throw new hccException("Username must be 5 to 20 characters!");
             }else {
                 throw new hccException("Username must begins with a letter!");
             }
@@ -119,7 +119,7 @@ public class UserServiceImpl extends BaseServiceImpl implements UserService {
         claims.put("username", userDO.getUsername());
         claims.put("email", userDO.getEmail());
         claims.put("gender", userDO.getGender());
-        claims.put("phone", userDO.getPhone());
+        claims.put("number", userDO.getNumber());
         newToken = Jwts.builder()
                 .setSubject(userDO.getId())
                 .setClaims(claims)
@@ -142,7 +142,7 @@ public class UserServiceImpl extends BaseServiceImpl implements UserService {
         userContextDTO.setUsername(userDO.getUsername());
         userContextDTO.setEmail(userDO.getEmail());
         userContextDTO.setGender(userDO.getGender());
-        userContextDTO.setPhone(userDO.getPhone());
+        userContextDTO.setNumber(userDO.getNumber());
         return userContextDTO;
     }
 
