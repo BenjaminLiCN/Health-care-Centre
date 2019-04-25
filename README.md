@@ -18,3 +18,5 @@ npm run
 to deploy the front end to your localhost
 
 The gulpfile.js will readin all the necessary dependencies like css, scss, js files and generate a vendor folder under the root directory. You should start looking at main.js to understand how it works.
+
+Note that /Users/Benjamin/Health-care-Centre/src/main/java/com/benjamin/hcc/security/WebSecurityConfig.java is controlling all the resources, you might want to include any files you newly created here.
