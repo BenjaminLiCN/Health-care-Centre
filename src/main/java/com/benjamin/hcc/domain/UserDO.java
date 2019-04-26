@@ -19,7 +19,7 @@ public class UserDO extends BaseDO {
                 ", name='" + name + '\'' +
                 ", gender='" + gender + '\'' +
                 ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
+                ", number='" + number + '\'' +
                 '}';
     }
 
@@ -34,9 +34,18 @@ public class UserDO extends BaseDO {
     private String email;
     @Column(name = "gender")
     private String gender;
-    @Column(name = "phone",length = 15)
-    private String phone;
+    @Column(name = "number",length = 15)
+    private String number;
+    @Column(name = "homeAddress",length = 100)
+    private String homeAddress;
 
+    public String getHomeAddress() {
+        return homeAddress;
+    }
+
+    public void setHomeAddress(String homeAddress) {
+        this.homeAddress = homeAddress;
+    }
 
     public String getName() {
         return name;
@@ -78,11 +87,11 @@ public class UserDO extends BaseDO {
         this.gender = gender;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getNumber() {
+        return number;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setNumber(String number) {
+        this.number = number;
     }
 }
