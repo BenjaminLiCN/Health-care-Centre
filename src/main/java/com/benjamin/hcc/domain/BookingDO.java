@@ -2,10 +2,16 @@ package com.benjamin.hcc.domain;
 
 import com.benjamin.hcc.core.BaseDO;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+
 import java.util.Date;
 
 /**
@@ -19,43 +25,44 @@ public class BookingDO extends BaseDO {
     @GeneratedValue
     private String id;
 
-    @Column(name = "professional",length = 40)
-    private String professional;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "professional_id")
+    private ProfessionalDO professionalDO;
 
-    @Column(name = "time" , length = 20)
-    private Date time;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
+    private UserDO userDO;
 
-    @Column(name = "duration" , nullable = true , length = 5)
-    private int duration;
+    public BookingDO(ProfessionalDO professionalDO, UserDO userDO) {
+		super();
+		this.professionalDO = professionalDO;
+		this.userDO = userDO;
+	}
 
-    @Column(name = "available_id" , length =  5)
-    private int available_id;
+	// e.g. 2019-4-10
+    @Column(name = "schedule_date")
+    private Date scheduleDate;
 
-    @Column(name = "message" , length =  200)
-    private String message;
+    // 12:15  == 12.25
+    @Column(name = "schedule_start")
+    private int start;
 
-    @Column(name = "confirm" , length =  200)
-    private int confirm;
+    @Column(name = "schedule_end")
+    private int end;
 
-    public int getConfirm() {
-        return confirm;
-    }
 
-    public void setConfirm(int confirm) {
-        this.confirm = confirm;
-    }
+    @Column(name = "description" , length =  200)
+    private String description;
 
-    @Override
-    public String toString() {
-        return "BookingDO{" +
-                "id=" + id +
-                ", professional='" + professional + '\'' +
-                ", time=" + time +
-                ", duration=" + duration +
-                ", available_id=" + available_id +
-                ", message='" + message + '\'' +
-                '}';
-    }
+    @Column(name = "is_confirmed" , length =  2)
+    private int isConfirmed;
+
+
+    @Column(name = "is_cancelled" , length =  2)
+    private int isCancelled;
+
+
+   
 
     @Override
     public String getId() {
@@ -66,43 +73,78 @@ public class BookingDO extends BaseDO {
         this.id = id;
     }
 
-    public String getProfessional() {
-        return professional;
-    }
+	public ProfessionalDO getProfessionalDO() {
+		return professionalDO;
+	}
 
-    public void setProfessional(String professional) {
-        this.professional = professional;
-    }
+	public void setProfessionalDO(ProfessionalDO professionalDO) {
+		this.professionalDO = professionalDO;
+	}
 
-    public Date getTime() {
-        return time;
-    }
+	public UserDO getUserDO() {
+		return userDO;
+	}
 
-    public void setTime(Date time) {
-        this.time = time;
-    }
+	public void setUserDO(UserDO userDO) {
+		this.userDO = userDO;
+	}
 
-    public int getDuration() {
-        return duration;
-    }
+	public Date getScheduleDate() {
+		return scheduleDate;
+	}
 
-    public void setDuration(int duration) {
-        this.duration = duration;
-    }
+	public void setScheduleDate(Date scheduleDate) {
+		this.scheduleDate = scheduleDate;
+	}
 
-    public int getAvailable_id() {
-        return available_id;
-    }
+	public int getStart() {
+		return start;
+	}
 
-    public void setAvailable_id(int available_id) {
-        this.available_id = available_id;
-    }
+	public void setStart(int start) {
+		this.start = start;
+	}
 
-    public String getMessage() {
-        return message;
-    }
+	public int getEnd() {
+		return end;
+	}
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
+	public void setEnd(int end) {
+		this.end = end;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public int getIsConfirmed() {
+		return isConfirmed;
+	}
+
+	public void setIsConfirmed(int isConfirmed) {
+		this.isConfirmed = isConfirmed;
+	}
+
+	public int getIsCancelled() {
+		return isCancelled;
+	}
+
+	public void setIsCancelled(int isCancelled) {
+		this.isCancelled = isCancelled;
+	}
+
+	@Override
+	public String toString() {
+		return "BookingDO [id=" + id + ", professionalDO=" + professionalDO + ", userDO=" + userDO + ", scheduleDate="
+				+ scheduleDate + ", start=" + start + ", end=" + end + ", description=" + description + ", isConfirmed="
+				+ isConfirmed + ", isCancelled=" + isCancelled + "]";
+	}
+    
+    
+
+
 }

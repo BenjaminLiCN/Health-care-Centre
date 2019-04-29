@@ -1,7 +1,19 @@
 package com.benjamin.hcc.domain;
-import com.benjamin.hcc.core.BaseDO;
 
-import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
+
+import com.benjamin.hcc.core.BaseDO;
 
 /**
  * @Auther Benjamin Li li.benjamincn@gmail.com
@@ -11,6 +23,10 @@ import javax.persistence.*;
 @Entity(name = "user_info")
 public class UserDO extends BaseDO {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	
     @Override
     public String toString() {
         return "UserDO{" +
@@ -22,7 +38,9 @@ public class UserDO extends BaseDO {
                 ", number='" + number + '\'' +
                 '}';
     }
-
+    @OneToMany(mappedBy = "userDO", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OrderBy(value = "id ASC")
+    private Set<BookingDO> userBookings = new HashSet<>();
 
     @Column(name = "name",length = 40)
     private String name;

@@ -1,5 +1,8 @@
 package com.benjamin.hcc;
 
+import com.benjamin.hcc.domain.UserDO;
+
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -8,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 @SpringBootApplication
-public class hccApplication {
+public class hccApplication implements CommandLineRunner{
 
 	public static void main(String[] args) {
 		SpringApplication.run(hccApplication.class, args);
@@ -21,5 +24,11 @@ public class hccApplication {
 				registry.addMapping("/**").allowedOrigins("*");
 			}
 		};
+	}
+
+	@Override
+	public void run(String... args) throws Exception{
+		UserDO test = new UserDO();
+		test.setCreateTime(null);
 	}
 }
