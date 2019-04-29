@@ -1,17 +1,19 @@
 package com.benjamin.hcc.utils;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import com.benjamin.hcc.dto.UserContextDTO;
 import com.benjamin.hcc.security.model.SimpleAuthority;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jwts;
+
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.util.StringUtils;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
 
 @SuppressWarnings("unchecked")
 public class WebUtils {

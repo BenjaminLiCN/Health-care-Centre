@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - hccApplication",
+            "request": "launch",
+            "mainClass": "com.benjamin.hcc.hccApplication",
+            "projectName": "benjamin"
+        }
+    ]
+}
