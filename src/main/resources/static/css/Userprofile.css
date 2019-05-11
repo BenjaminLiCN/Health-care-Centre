@@ -1,0 +1,88 @@
+
+body {
+  overflow-x: hidden;
+}
+a {
+  text-decoration: none;
+  outline: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.logo{
+  font-family: 'Alegreya SC';
+  font-size: 20px;
+  color: black;
+
+}
+
+.divide-sidebar{
+  height: 200px;
+  padding-top: 50px;
+  padding-left: 100px;
+}
+
+#sidebar-wrapper {
+  min-height: 100vh;
+  margin-left: -15rem;
+  -webkit-transition: margin .25s ease-out;
+  -moz-transition: margin .25s ease-out;
+  -o-transition: margin .25s ease-out;
+  transition: margin .25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+  border-style: solid;
+  border-width: 1px;
+  text-align: center;
+  height: 57px;
+}
+
+#sidebar-wrapper .list-group {
+  width: 15rem;
+}
+
+#page-content-wrapper {
+  min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: 0;
+}
+
+.list-group-item{
+  text-align: center;
+}
+
+.form-account{
+  margin-left: 250px;
+  margin-top: 130px;
+}
+.account-setting{
+  margin-left: 250px;
+  margin-top: 30px;
+}
+
+.setting-above{
+  font-size: 32px;
+}
+.seeting-below{
+  font-size: 18px;
+}
+
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: -15rem;
+  }
+}

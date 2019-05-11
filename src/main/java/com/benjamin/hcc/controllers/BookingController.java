@@ -24,12 +24,12 @@ public class BookingController {
         return WebUtils.success();
     }
     @PostMapping("cancel")
-    public WebResults cancel(@RequestHeader String header,@RequestBody BookingDTO bookingDTO) {
+    public WebResults cancel(@RequestBody BookingDTO bookingDTO) {
         bookingService.cancel(bookingDTO);
         return WebUtils.success();
     }
     @PostMapping("confirm")
-    public WebResults confirm(@RequestHeader String header,@RequestBody BookingDTO bookingDTO) {
+    public WebResults confirm(@RequestBody BookingDTO bookingDTO) {
         bookingService.confirm(bookingDTO);
         return WebUtils.success();
     }
