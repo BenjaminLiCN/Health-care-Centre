@@ -1,3 +1,3 @@
 $(".button-test").click(function () {
-        alert('ssss')
+        alert('register success')
     });
