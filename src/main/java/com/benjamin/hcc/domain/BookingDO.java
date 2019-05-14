@@ -14,16 +14,11 @@ import javax.persistence.OneToOne;
 
 import java.util.Date;
 
-/**
- * @Auther Benjamin Li li.benjamincn@gmail.com
- * @id 961543
- * @date 2018/9/28下午12:53
- */
 @Entity(name = "booking_info")
-public class BookingDO extends BaseDO {
+public class BookingDO{
     @Id
     @GeneratedValue
-    private String id;
+    private Long id;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "professional_id")
@@ -31,12 +26,18 @@ public class BookingDO extends BaseDO {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
-    private UserDO userDO;
+	private UserDO userDO;
+	
+	public BookingDO(){
+		this.isConfirmed = 0;
+		this.isCancelled = 0;
+	}
 
     public BookingDO(ProfessionalDO professionalDO, UserDO userDO) {
-		super();
 		this.professionalDO = professionalDO;
 		this.userDO = userDO;
+		this.isConfirmed = 0;
+		this.isCancelled = 0;
 	}
 
 	// e.g. 2019-4-10
@@ -63,13 +64,11 @@ public class BookingDO extends BaseDO {
 
 
    
-
-    @Override
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

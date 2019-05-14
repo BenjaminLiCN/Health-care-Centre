@@ -8,17 +8,20 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import com.benjamin.hcc.core.BaseDO;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity(name = "professional_info")
-public class ProfessionalDO extends BaseDO {
+public class ProfessionalDO {
 
 	@Id
-	@GeneratedValue
-	private String id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "id", nullable = false, updatable = false)
+	private Long id;
 
 	@Override
 	public String toString() {
@@ -27,10 +30,7 @@ public class ProfessionalDO extends BaseDO {
 				+ availableTimeDOs + "]";
 	}
 
-	public ProfessionalDO(Set<BookingDO> bookingDOs, Set<AvailableTimeDO> availableTimeDOs) {
-		super();
-		this.bookingDOs = bookingDOs;
-		this.availableTimeDOs = availableTimeDOs;
+	public ProfessionalDO() {
 	}
 
 	@Column(name = "type", length = 20)
@@ -48,17 +48,19 @@ public class ProfessionalDO extends BaseDO {
 	@Column(name = "charge", length = 20)
 	private String charge;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "professionalDO", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Set<BookingDO> bookingDOs = new HashSet<>();
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "professionalDO", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Set<AvailableTimeDO> availableTimeDOs = new HashSet<>();
 
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

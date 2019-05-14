@@ -28,7 +28,5 @@ public class hccApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception{
-		UserDO test = new UserDO();
-		test.setCreateTime(null);
 	}
 }
