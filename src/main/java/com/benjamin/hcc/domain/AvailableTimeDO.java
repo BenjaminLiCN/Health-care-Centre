@@ -11,33 +11,47 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity(name="Availabletime_info")
 public class AvailableTimeDO{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    
+	
+	@JsonIgnore
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "professional_id")
     private ProfessionalDO professionalDO;
     
     
-    public AvailableTimeDO(ProfessionalDO professionalDO) {
+    public AvailableTimeDO() {
 		super();
-		this.professionalDO = professionalDO;
+		this.isBooked = 0;
 	}
 
 	// e.g. 2019-4-10
     @Column(name = "schedule_date")
-    private Date scheduleDate;
+    private String scheduleDate;
 
     // 12:15  == 12.25
     @Column(name = "period_start")
     private int periodStart;
 
     @Column(name = "period_end")
-    private int periodEnd;
+	private int periodEnd;
+	
+	@Column(name = "is_booked")
+	private int isBooked;
+
+	public int getIsBooked(){
+		return isBooked;
+	}
+
+	public void setIsBooked(int isBooked){
+		this.isBooked = isBooked;
+	}
 
 	public Long getId() {
 		return id;
@@ -55,11 +69,11 @@ public class AvailableTimeDO{
 		this.professionalDO = professionalDO;
 	}
 
-	public Date getScheduleDate() {
+	public String getScheduleDate() {
 		return scheduleDate;
 	}
 
-	public void setScheduleDate(Date scheduleDate) {
+	public void setScheduleDate(String scheduleDate) {
 		this.scheduleDate = scheduleDate;
 	}
 

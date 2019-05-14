@@ -15,13 +15,8 @@ import javax.persistence.OrderBy;
 
 import com.benjamin.hcc.core.BaseDO;
 
-/**
- * @Auther Benjamin Li li.benjamincn@gmail.com
- * @id 961543
- * @date 2018/9/28下午12:53
- */
 @Entity(name = "user_info")
-public class UserDO extends BaseDO {
+public class UserDO{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -38,6 +33,12 @@ public class UserDO extends BaseDO {
                 ", number='" + number + '\'' +
                 '}';
     }
+
+    public UserDO(){
+        this.isAdmin = 0;
+    }
+
+
     @OneToMany(mappedBy = "userDO", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @OrderBy(value = "id ASC")
     private Set<BookingDO> userBookings = new HashSet<>();
@@ -56,6 +57,16 @@ public class UserDO extends BaseDO {
     private String number;
     @Column(name = "homeAddress",length = 100)
     private String homeAddress;
+    @Column(name = "is_admin")
+    private int isAdmin;
+
+    public int getIsAdmin(){
+        return isAdmin;
+    }
+
+    public void setIsAdmin(int isAdmin){
+        this.isAdmin = isAdmin;
+    }
 
     public String getHomeAddress() {
         return homeAddress;

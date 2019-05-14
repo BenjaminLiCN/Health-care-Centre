@@ -9,8 +9,8 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2019-04-29T18:21:43+1000",
-    comments = "version: 1.2.0.Final, compiler: Eclipse JDT (IDE) 3.18.0.v20190415-0656, environment: Java 1.8.0_201 (Oracle Corporation)"
+    date = "2019-05-14T22:21:30+1000",
+    comments = "version: 1.2.0.Final, compiler: Eclipse JDT (IDE) 3.18.0.v20190430-1056, environment: Java 1.8.0_201 (Oracle Corporation)"
 )
 @Component
 public class UserRegisterReqMapperImpl implements UserRegisterReqMapper {
@@ -30,8 +30,8 @@ public class UserRegisterReqMapperImpl implements UserRegisterReqMapper {
         userRegisterReqDTO.setEmail( userDO.getEmail() );
         userRegisterReqDTO.setUsername( userDO.getUsername() );
         userRegisterReqDTO.setHomeAddress( userDO.getHomeAddress() );
-        userRegisterReqDTO.setCreateTime( userDO.getCreateTime() );
         userRegisterReqDTO.setDeleted( userDO.getDeleted() );
+        userRegisterReqDTO.setCreateTime( userDO.getCreateTime() );
         userRegisterReqDTO.setRemark( userDO.getRemark() );
 
         return userRegisterReqDTO;
@@ -45,16 +45,16 @@ public class UserRegisterReqMapperImpl implements UserRegisterReqMapper {
 
         UserDO userDO = new UserDO();
 
-        userDO.setCreateTime( userRegisterReqDTO.getCreateTime() );
-        userDO.setDeleted( userRegisterReqDTO.getDeleted() );
         userDO.setId( userRegisterReqDTO.getId() );
+        userDO.setDeleted( userRegisterReqDTO.getDeleted() );
+        userDO.setCreateTime( userRegisterReqDTO.getCreateTime() );
         userDO.setRemark( userRegisterReqDTO.getRemark() );
+        userDO.setHomeAddress( userRegisterReqDTO.getHomeAddress() );
+        userDO.setUsername( userRegisterReqDTO.getUsername() );
+        userDO.setPassword( userRegisterReqDTO.getPassword() );
         userDO.setEmail( userRegisterReqDTO.getEmail() );
         userDO.setGender( userRegisterReqDTO.getGender() );
-        userDO.setHomeAddress( userRegisterReqDTO.getHomeAddress() );
         userDO.setNumber( userRegisterReqDTO.getNumber() );
-        userDO.setPassword( userRegisterReqDTO.getPassword() );
-        userDO.setUsername( userRegisterReqDTO.getUsername() );
 
         return userDO;
     }
