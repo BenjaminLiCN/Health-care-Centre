@@ -72,6 +72,34 @@ a:hover {
   font-size: 18px;
 }
 
+
+
+
+.select_doctor_type{
+  margin-right: 50px;
+}
+
+.table_content_style{
+  margin:0 auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 900px;
+  border:1px solid #a5b6c8;
+  border-radius: 4px;
+}
+
+.all_doctor{
+  margin:0 auto;
+  width: 1000px;
+  border:2px solid #a5b6c8;
+  border-radius: 5px;
+}
+
+.submit_button{
+  margin-left: 700px;
+  margin-bottom: 50px;
+}
+
 @media (min-width: 768px) {
   #sidebar-wrapper {
     margin-left: 0;
