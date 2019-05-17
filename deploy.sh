@@ -2,7 +2,7 @@
 #post build scripts
 echo "fake script"
 cd /var/lib/jenkins/workspace/healthCentre
-echo "kill the existing process"
+echo "kill the existing process "
 pid=`ps |grep java|awk '{print $1}'`
 if [ -n "$pid" ]
 then
