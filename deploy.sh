@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #post build scripts
-echo "build successfully, deploying to the server..."
+echo "fake script"
 cd /var/lib/jenkins/workspace/healthCentre
 echo "kill the existing process"
 pid=`ps |grep java|awk '{print $1}'`
