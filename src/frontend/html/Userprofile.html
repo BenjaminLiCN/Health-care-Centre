@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>User Homepage</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../css/Userprofile.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/font-awesome.min.css">
+
+    <!-- google fonts -->
+    <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=PT+Sans'>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Serif:regular,bold"/>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Alegreya+Sans:regular,italic,bold,bolditalic"/>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nixie+One:regular,italic,bold,bolditalic"/>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Alegreya+SC:regular,italic,bold,bolditalic"/>
+
+</head>
+
+<body>
+<div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+        <div class="sidebar-heading">
+            <h1><a class="logo" href="#">Health-care Centre</a></h1>
+        </div>
+
+        <div class="divide-sidebar">
+            <div class="row">
+                <span style="font-size: 4em;">
+                    <i class="fa fa-user"></i>
+                </span>
+            </div>
+            <div class="row">
+                Name
+            </div>
+        </div>
+
+        <div class="list-group list-group-flush" id="example-navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#tab_1" class="list-group-item list-group-item-action bg-light" data-toggle="tab">User Profiles</a></li>
+                <li><a href="#tab_2" class="list-group-item list-group-item-action bg-light" data-toggle="tab">Booking System</a></li>
+                <li><a href="#tab_3" class="list-group-item list-group-item-action bg-light" data-toggle="tab">Email Notification</a></li>
+            </ul>
+        </div>
+
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper" class="tab-content">
+        <div id="tab_1" class="tab-pane active">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Welcome, Name <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Log out</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container-fluid">
+            <form class="form-horizontal">
+                <fieldset>
+                    <!-- Form Name -->
+                    <div class="account-setting">
+                        <div class="row"><span class="setting-above">Account setting</span></div>
+                        <div class="row"><span class="seeting-below">View and Edit your personal information</span></div>
+                    </div>
+                    <hr style="height:1px;border:none;border-top:1px solid #555555; width: 1000px" />
+
+                    <div class="form-account">
+                    <!-- Text input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="textinput">Change Email ID</label>
+                        <div class="col-md-4">
+                            <input id="textinput" name="textinput" type="text" placeholder="your current email " class="form-control input-md">
+                        </div>
+                    </div>
+
+                    <!-- Password input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="passwordinput">new password</label>
+                        <div class="col-md-4">
+                            <input id="passwordinput" name="passwordinput" type="password" placeholder="new password" class="form-control input-md">
+
+                        </div>
+                    </div>
+
+                    <!-- Button -->
+                    <div class="form-group">
+                        <div class="col-md-4">
+                            <button id="singlebutton" name="singlebutton" class="btn btn-success">SUBMIT</button>
+                        </div>
+                    </div>
+                    </div>
+
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+
+        <div id="tab_2" class="tab-pane fade">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Welcome, Name <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Log out</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="container-fluid">
+                <form class="form-horizontal">
+                    <fieldset>
+                        <!-- Form Name -->
+                        <div class="account-setting">
+                            <div class="row"><span class="setting-above">Booking Now</span></div>
+                            <div class="row"><span class="seeting-below">Making An Appointment Now</span></div>
+                        </div>
+                        <hr style="height:1px;border:none;border-top:1px solid #555555; width: 1000px" />
+
+
+                        <!-- Text input-->
+                        <div class="all_doctor">
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light select_doctor">
+                            <a class="navbar-brand select_doctor_type" href="#">Select the Type</a>
+
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav mr-auto">
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="#tab_doctor_1" data-toggle="tab">Podiatrist</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#tab_doctor_2" data-toggle="tab">Naturopath</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#tab_doctor_3" data-toggle="tab">Chiropractor</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+
+                        <div class="tab-content content_doctor">
+                            <div id="tab_doctor_1" class="tab-pane active">
+                                <form>
+                                <div class="table_content_style">
+                                <table class="table table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Per-hour charge</th>
+                                        <th>ScheduleDate</th>
+                                        <th>PeriodStart</th>
+                                        <th>PeriodEnd</th>
+                                        <th>Book now</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Emma</td>
+                                        <td>15</td>
+                                        <td>14/05/2019</td>
+                                        <td>12</td>
+                                        <td>13</td>
+                                        <td>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" value=""></label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>15/05/2019</td>
+                                        <td>14</td>
+                                        <td>15</td>
+                                        <td>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" value=""></label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>17/05/2019</td>
+                                        <td>9</td>
+                                        <td>10</td>
+                                        <td>
+                                            <div class="checkbox">
+                                                <label><input type="checkbox" value=""></label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                </div>
+
+                                <div class="table_content_style">
+                                    <table class="table table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Per-hour charge</th>
+                                            <th>ScheduleDate</th>
+                                            <th>PeriodStart</th>
+                                            <th>PeriodEnd</th>
+                                            <th>Book now</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Lily</td>
+                                            <td>15</td>
+                                            <td>16/05/2019</td>
+                                            <td>12</td>
+                                            <td>13</td>
+                                            <td>
+                                                <div class="checkbox">
+                                                    <label><input type="checkbox" value=""></label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>14/05/2019</td>
+                                            <td>14</td>
+                                            <td>15</td>
+                                            <td>
+                                                <div class="checkbox">
+                                                    <label><input type="checkbox" value=""></label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>16/05/2019</td>
+                                            <td>9</td>
+                                            <td>10</td>
+                                            <td>
+                                                <div class="checkbox">
+                                                    <label><input type="checkbox" value=""></label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="table_content_style">
+                                    <table class="table table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Per-hour charge</th>
+                                            <th>ScheduleDate</th>
+                                            <th>PeriodStart</th>
+                                            <th>PeriodEnd</th>
+                                            <th>Book now</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Bob</td>
+                                            <td>15</td>
+                                            <td>14/05/2019</td>
+                                            <td>15</td>
+                                            <td>16</td>
+                                            <td>
+                                                <div class="checkbox">
+                                                    <label><input type="checkbox" value=""></label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>13/05/2019</td>
+                                            <td>8</td>
+                                            <td>9</td>
+                                            <td>
+                                                <div class="checkbox">
+                                                    <label><input type="checkbox" value=""></label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>14/05/2019</td>
+                                            <td>9</td>
+                                            <td>10</td>
+                                            <td>
+                                                <div class="checkbox">
+                                                    <label><input type="checkbox" value=""></label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                    <div class="submit_button">
+                                        <button type="button" id="save_technician_edit" class="btn btn-primary"  data-dismiss="modal">Book Now</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div id="tab_doctor_2" class="tab-pane fade">
+                                yyyyyyy
+                            </div>
+
+                            <div id="tab_doctor_3" class="tab-pane fade">
+                                zzzzzzzzz
+                            </div>
+                        </div>
+                        </div>
+
+
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+
+
+
+        <div id="tab_3" class="tab-pane fade">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Welcome, Name <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Log out</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="container-fluid">
+                <form class="form-horizontal">
+                    <fieldset>
+                        <!-- Form Name -->
+                        <div class="account-setting">
+                            <div class="row"><span class="setting-above">Booking Now</span></div>
+                            <div class="row"><span class="seeting-below">Making An Appointment Now</span></div>
+                        </div>
+                        <hr style="height:1px;border:none;border-top:1px solid #555555; width: 1000px" />
+
+
+
+                    </fieldset>
+                </form>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+<!-- /#wrapper -->
+
+<!-- Bootstrap core JavaScript -->
+<script src="../js/jquery-2.1.3.min.js"></script>
+<script src="../js/bootstrap.bundle.min.js"></script>
+<script src="../js/Userprofile.js"></script>
+
+
+
+
+</body>
+
+</html>
