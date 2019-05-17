@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #post build scripts
 echo "build successfully, deploying to the server..."
-cd /var/lib/jenkins/workspace/whattocook
+cd /var/lib/jenkins/workspace/healthCentre
 echo "kill the existing process"
 pid=`ps |grep java|awk '{print $1}'`
 if [ -n "$pid" ]
