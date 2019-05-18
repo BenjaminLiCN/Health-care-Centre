@@ -8,7 +8,7 @@ import com.benjamin.hcc.core.BaseDTO;
  * @ID 961543
  * @Date 2019-04-22 18:05
  */
-public class UserRegisterReqDTO extends BaseDTO {
+public class UserRegisterReqDTO  {
     @Override
     public String toString() {
         return "UserDTO{" +

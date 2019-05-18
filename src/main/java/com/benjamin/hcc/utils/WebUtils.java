@@ -67,7 +67,7 @@ public class WebUtils {
                 String userId = (String)user.get("sub");
                 UserContextDTO userDto = new UserContextDTO();
                 userDto.setUsername((String)user.get("username"));
-                userDto.setId((String)user.get("id"));
+                userDto.setId((Long)user.get("id"));
 
                 String authStr = (String)user.get("_auth");
                 List<String> auths = Arrays.asList(StringUtils.commaDelimitedListToStringArray(authStr));

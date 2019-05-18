@@ -53,8 +53,6 @@ public class UserServiceImpl extends BaseServiceImpl implements UserService {
         });
         if (userDO == null) {
             throw new hccException("Incorrect username or password!");
-        } else if (userDO.getDeleted()) {
-            throw new hccException("User has been banned!");
         } else {
             Map<String, Object> claims = new HashMap<>();
             UserContextDTO userContextDTO  = getUserContextById(userDO.getId());
@@ -65,7 +63,7 @@ public class UserServiceImpl extends BaseServiceImpl implements UserService {
             claims.put("gender", userContextDTO.getGender());
             claims.put("number", userContextDTO.getNumber());
             token = Jwts.builder()
-                    .setSubject(userDO.getId())
+                    .setSubject(userDO.getId().toString())
                     .setClaims(claims)
                     .setExpiration(new Date(System.currentTimeMillis() + 60 * 60 * 24 * 1000))
                     .signWith(SignatureAlgorithm.HS512, SystemVars.JWT_SECRET)
@@ -121,7 +119,7 @@ public class UserServiceImpl extends BaseServiceImpl implements UserService {
         claims.put("gender", userDO.getGender());
         claims.put("number", userDO.getNumber());
         newToken = Jwts.builder()
-                .setSubject(userDO.getId())
+                .setSubject(userDO.getId().toString())
                 .setClaims(claims)
                 .setExpiration(new Date(System.currentTimeMillis() + 60 * 60 * 24 * 1000))
                 .signWith(SignatureAlgorithm.HS512, SystemVars.JWT_SECRET)
@@ -134,7 +132,7 @@ public class UserServiceImpl extends BaseServiceImpl implements UserService {
     }
 
     @Override
-    public UserContextDTO getUserContextById(String id) {
+    public UserContextDTO getUserContextById(long id) {
         UserDO userDO = userDao.findOne(id);
         UserContextDTO userContextDTO = new UserContextDTO();
         userContextDTO.setId(userDO.getId());

@@ -20,8 +20,9 @@ public interface UserMapper {
      * @return
      */
     @Mappings({
-            @Mapping(source = "username",target = "username"),
-            @Mapping(source = "password",target = "password")
+            //if
+//            @Mapping(source = "username",target = "username"),
+//            @Mapping(source = "password",target = "password")
     })
     public UserDTO from(UserDO userDO);
 

@@ -27,10 +27,10 @@ public interface UserService {
 
     /**
      * Get user information by id
-     * @param id
+     * @param id long
      * @return
      */
-    UserContextDTO getUserContextById(String id);
+    UserContextDTO getUserContextById(long id);
 
     /**
      * Get current user information
