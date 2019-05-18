@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 #post build scripts
+#jenkins!
 echo "Build finished, a jar file should be created by now.."
 cd /var/lib/jenkins/workspace/healthCentre
 echo "Check if there's any process running..."
