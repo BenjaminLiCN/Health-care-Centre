@@ -4,8 +4,11 @@ $(document).ready(function() {
         type: 'POST',
         data : '',
         success: function (data) {
+                $(".tbody_Podiatrist").empty();
+                $(".tbody_naturopath").empty();
+                $(".tbody_chiropractor").empty();
                 $.each(data, function(index, item){
-                    if(item.type == 'testType'){
+                    if(item.type == 'Podiatrist'){
                         var divA = document.getElementById("tbody_Podiatrist");
                         $(divA).append(
                             "<div class='table_content_style'>"
@@ -20,7 +23,7 @@ $(document).ready(function() {
                             +"<th>" + "PeriodEnd" + "</th>"
                             +"<th>" + "Book" + "now" + "</th>"
                             +"</tr></thead>"
-                            +"<tbody id='tbody_Poduatrist_scheduleDate'></tbody>"
+                            +"<tbody class='tbody_Poduatrist_scheduleDate' value='"+item.id+"'></tbody>"
                             +"</table>"
                             +"</div>"
                         );
@@ -29,18 +32,18 @@ $(document).ready(function() {
                         var baseUrl = 'http://xfchen.tech:8081/booking/professional/availabletime/';
                         var a = item.id;
                         var finalUrl = baseUrl + a;
+                        var divB = $("tbody[value='"+item.id+"']")
                         $.ajax({
                             url: finalUrl,
                             type: 'GET',
                             data : '',
                             success: function (data) {
                                 $.each(data, function(index, item){
-                                    var divB = document.getElementById("tbody_Poduatrist_scheduleDate");
                                     $(divB).append(
                                         "<tr>"
                                         +"<td>" + item.scheduleDate + "</td>"
-                                        +"<td>" + item.periodStart + "</td>"
-                                        +"<td>" + item.periodEnd + "</td>"
+                                        +"<td>" + item.periodStart+ ":00" + "</td>"
+                                        +"<td>" + item.periodEnd + ":00" + "</td>"
                                         +"<td>" + " <button type='button' id='"+item.id+"' class='btn btn-success book_button'  data-toggle='modal' data-target='#myModal'>"
                                         + "Book Now"
                                         +"</button>" + "</td>"
@@ -53,9 +56,9 @@ $(document).ready(function() {
                                     $('button[id="'+item.id+'"]').data("professional_id",professional_id)
 
 
-                                    /*if(item.isBooked  == 1){
+                                    if(item.isBooked  == 1){
                                         $('button[id="'+item.id+'"]').prop('disabled', true);
-                                    }*/
+                                    }
                                 })
 
                             }
@@ -63,7 +66,7 @@ $(document).ready(function() {
                         })
                     }
 
-                    if(item.type == 'testType'){
+                    if(item.type == 'Naturopath'){
                         var divnaturopath = document.getElementById("tbody_naturopath");
                         $(divnaturopath).append(
                             "<div class='table_content_style'>"
@@ -78,7 +81,7 @@ $(document).ready(function() {
                             +"<th>" + "PeriodEnd" + "</th>"
                             +"<th>" + "Book" + "now" + "</th>"
                             +"</tr></thead>"
-                            +"<tbody id='tbody_naturopath_scheduleDate'></tbody>"
+                            +"<tbody class='tbody_naturopath_scheduleDate'  value='"+item.id+"'></tbody>"
                             +"</table>"
                             +"</div>"
                         );
@@ -87,18 +90,18 @@ $(document).ready(function() {
                         var baseUrl = 'http://xfchen.tech:8081/booking/professional/availabletime/';
                         var a = item.id;
                         var finalUrl = baseUrl + a;
+                        var divnaturopath_schedule = $("tbody[value='"+item.id+"']")
                         $.ajax({
                             url: finalUrl,
                             type: 'GET',
                             data : '',
                             success: function (data) {
                                 $.each(data, function(index, item){
-                                    var divnaturopath_schedule = document.getElementById("tbody_naturopath_scheduleDate");
                                     $(divnaturopath_schedule).append(
                                         "<tr>"
                                         +"<td>" + item.scheduleDate + "</td>"
-                                        +"<td>" + item.periodStart + "</td>"
-                                        +"<td>" + item.periodEnd + "</td>"
+                                        +"<td>" + item.periodStart + ":00" + "</td>"
+                                        +"<td>" + item.periodEnd +  ":00" +"</td>"
                                         +"<td>" + " <button type='button' id='"+item.id+"' class='btn btn-success book_button'  data-toggle='modal' data-target='#myModal'>"
                                         + "Book Now"
                                         +"</button>" + "</td>"
@@ -111,9 +114,9 @@ $(document).ready(function() {
                                     $('button[id="'+item.id+'"]').data("professional_id",professional_id)
 
 
-                                    /*if(item.isBooked  == 1){
+                                    if(item.isBooked  == 1){
                                         $('button[id="'+item.id+'"]').prop('disabled', true);
-                                    }*/
+                                    }
                                 })
 
                             }
@@ -121,7 +124,7 @@ $(document).ready(function() {
                         })
                     }
 
-                    if(item.type == 'testType'){
+                    if(item.type == 'Chiropractor'){
                         var divchiropractor = document.getElementById("tbody_chiropractor");
                         $(divchiropractor).append(
                             "<div class='table_content_style'>"
@@ -136,7 +139,7 @@ $(document).ready(function() {
                             +"<th>" + "PeriodEnd" + "</th>"
                             +"<th>" + "Book" + "now" + "</th>"
                             +"</tr></thead>"
-                            +"<tbody id='tbody_chiropractor_scheduleDate'></tbody>"
+                            +"<tbody class='tbody_chiropractor_scheduleDate' value='"+item.id+"'></tbody>"
                             +"</table>"
                             +"</div>"
                         );
@@ -145,18 +148,18 @@ $(document).ready(function() {
                         var baseUrl = 'http://xfchen.tech:8081/booking/professional/availabletime/';
                         var a = item.id;
                         var finalUrl = baseUrl + a;
+                        var divchiropractor_schedule = $("tbody[value='"+item.id+"']")
                         $.ajax({
                             url: finalUrl,
                             type: 'GET',
                             data : '',
                             success: function (data) {
                                 $.each(data, function(index, item){
-                                    var divchiropractor_schedule = document.getElementById("tbody_chiropractor_scheduleDate");
                                     $(divchiropractor_schedule).append(
                                         "<tr>"
-                                        +"<td>" + item.scheduleDate + "</td>"
-                                        +"<td>" + item.periodStart + "</td>"
-                                        +"<td>" + item.periodEnd + "</td>"
+                                        +"<td>" + item.scheduleDate +  "</td>"
+                                        +"<td>" + item.periodStart + ":00" + "</td>"
+                                        +"<td>" + item.periodEnd + ":00" +"</td>"
                                         +"<td>" + " <button type='button' id='"+item.id+"' class='btn btn-success book_button'  data-toggle='modal' data-target='#myModal'>"
                                         + "Book Now"
                                         +"</button>" + "</td>"
@@ -169,9 +172,9 @@ $(document).ready(function() {
                                     $('button[id="'+item.id+'"]').data("professional_id",professional_id)
 
 
-                                    /*if(item.isBooked  == 1){
+                                    if(item.isBooked  == 1){
                                         $('button[id="'+item.id+'"]').prop('disabled', true);
-                                    }*/
+                                    }
                                 })
 
                             }
@@ -232,24 +235,48 @@ $(document).ready(function() {
                     +"<td>" + item.professionalDO.name + "</td>"
                     +"<td>" + item.professionalDO.charge + "</td>"
                     +"<td>" + item.scheduleDate + "</td>"
-                    +"<td>" + item.start + "</td>"
-                    +"<td>" + item.end + "</td>"
+                    +"<td>" + item.start + ":00" + "</td>"
+                    +"<td>" + item.end + ":00" +"</td>"
                     +"<td>" + item.description + "</td>"
-                    +"<td>" + "<button type='button' class='cancel_booking' class='btn btn-success'  data-dismiss='modal'>" + 'Cancel Now'+ '</button>'
+                    +"<td>" + item.isCancelled + "</td>"
+                    +"<td>" + "<button type='button'  value='"+item.id+"' class='cancel_booking' class='btn btn-success'>" + 'Cancel Now'+ '</button>'
                     + "</td>"
                     +"</tr>"
 
                 );
-
-
-
-                /*if(item.isBooked  == 1){
-                    $('button[id="'+item.id+'"]').prop('disabled', true);
-                }*/
+                if(item.isCancelled  == 1){
+                    $('button[value="'+item.id+'"]').prop('disabled', true);
+                }
 
             })
 
         }
+
+    })
+
+    $(function () {
+        $(document).on("click", ".cancel_booking", function (){
+
+
+            var booking_id=$(this).val()
+            var bookingUrl = 'http://xfchen.tech:8081/booking/';
+            var finalbookingUrl = bookingUrl + booking_id;
+            $.ajax({
+                url: finalbookingUrl,
+                type: 'DELETE',
+                data : '',
+                dataType : 'json',
+                crossDomain : true,
+                success: function (data) {
+                    alert("Cancel Successfully");
+                    window.location.reload();
+                }
+
+            })
+
+        })
+
+
 
     })
 
