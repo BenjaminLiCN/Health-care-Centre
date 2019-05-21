@@ -29,42 +29,38 @@
             </div>
             <div class="card-body">
                 <form action="#" method="post" class="form" role="form">
-                    <div class="row card-margin">
-                        <div class="col-xs-6 col-md-6">
-                            <input class="form-control" name="firstname" placeholder="First Name" type="text"
-                                   required autofocus />
-                        </div>
-                        <div class="col-xs-6 col-md-6">
-                            <input class="form-control" name="lastname" placeholder="Last Name" type="text" required />
-                        </div>
+                    <div class="col-xs-6 card-margin">
+                        <input class="form-control" name="username" placeholder="Username" type="username" />
                     </div>
                     <div class="col-xs-6 card-margin">
                         <input class="form-control" name="email" placeholder="Your Email" type="email" />
                     </div>
                     <div class="col-xs-6 card-margin">
-                        <input class="form-control" name="password" placeholder="New Password" type="password" />
+                        <input class="form-control" name="address" placeholder="Home Address" type="address" />
                     </div>
                     <div class="col-xs-6 card-margin">
-                        <input class="form-control" name="re-password" placeholder="Re-enter Password" type="password" />
+                        <input class="form-control" name="phone" placeholder="Phone Number" type="phone" />
                     </div>
-
+                    <div class="col-xs-6 card-margin">
+                        <input class="form-control" name="password" placeholder="New Password" type="password" />
+                    </div>
                     <div class="row">
                         <label class="radio-inline col-xs-4 col-md-4">
-                            <input type="radio" name="sex" id="inlineCheckbox1" value="male" />
+                            <input type="radio" name="sex" id="male" value="male" />
                             Male
                         </label>
                         <label class="radio-inline col-xs-4 col-md-4">
-                            <input type="radio" name="sex" id="inlineCheckbox2" value="female" />
+                            <input type="radio" name="sex" id="female" value="female" />
                             Female
                         </label>
                         <label class="radio-inline col-xs-4 col-md-4">
-                            <input type="radio" name="sex" id="inlineCheckbox2" value="female" />
+                            <input type="radio" name="sex" id="other" value="other" />
                             Other
                         </label>
                     </div>
                     <br />
                     <br />
-                    <input type="submit" value="Sign Up" class="btn float-right register_btn" class="submit-register">
+                    <button type="button" id="button-test"  class="btn float-right register_btn" >Sign up</button>
                 </form>
             </div>
         </div>
