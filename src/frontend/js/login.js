@@ -13,6 +13,7 @@ $(document).ready(function() {
 //            crossDomain : true,
             dataType : 'json',
             success: function (data) {
+                console.log(data)
                 window.location("Userprofile.html");
             },
             error:function(XMLHttpRequest, textStatus){
