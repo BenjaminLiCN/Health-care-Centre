@@ -14,6 +14,7 @@
             payload[this.name] = this.value;
           });
           data = JSON.stringify(payload);
+          event.preventDefault();
           $.ajax({
               url: "http://18.191.27.125:8082/user/register",
               type: 'POST',
