@@ -196,20 +196,29 @@ $(document).ready(function() {
             var PeriodStart =  $(this).data().PeriodStart;
             var periodEnd =  $(this).data().PeriodEnd;
             var professionalId =  $(this).data().professional_id;
+            var booking = {
+                "userId":1,
+                "professionalId":professionalId,
+                "scheduledDate":ScheduleDate,
+                "scheduleStart": PeriodStart,
+                "scheduleEnd":periodEnd,
+                "description": $(".book_message").val()
+            }
+
+            var wrappedData = {
+                "url" : "http://18.191.27.125:8081/booking",
+                "type" : "POST",
+                "data" : booking,
+                "dataType" : "json",
+                "crossDomain" : true
+            }
+
             $(document).on("click", ".submit_booking", function (){
                 $.ajax({
-                    url: 'http://xfchen.tech:8081/booking/',
+                    url: 'http://18.191.27.125:8082/booking/',
                     type: 'POST',
-                    data : {
-                        "userId":1,
-                        "professionalId":professionalId,
-                        "scheduledDate":ScheduleDate,
-                        "scheduleStart": PeriodStart,
-                        "scheduleEnd":periodEnd,
-                        "description": $(".book_message").val()
-                    },
+                    data : ,
                     dataType : 'json',
-                    crossDomain : true,
                     success: function (data) {
                         alert(" Booking successfully");
                         window.location.reload();
