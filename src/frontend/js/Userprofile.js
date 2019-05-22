@@ -1,6 +1,13 @@
 $(document).ready(function() {
+    var wrappedData = {
+                    "url" : "http://18.191.27.125:8082/booking",
+                    "type" : "POST",
+                    "data" : booking,
+                    "dataType" : "json",
+                    "crossDomain" : true
+                }
     $.ajax({
-        url: "http://xfchen.tech:8081/booking/professional/",
+        url: "http://18.191.27.125:8081/booking/professional/",
         type: 'POST',
         data : '',
         success: function (data) {

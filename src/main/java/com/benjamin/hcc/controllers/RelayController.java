@@ -45,7 +45,7 @@ public class RelayController {
             System.out.println("Parsing JSON went wrong!");
         }
 
-        HttpEntity<String> entity = new HttpEntity<>(data.toString(), headers);
+        HttpEntity<String> entity = new HttpEntity<>(data.toJSONString(), headers);
 
         HttpMethod method = null;
         switch (type.toUpperCase()){
