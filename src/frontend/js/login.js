@@ -15,7 +15,7 @@ $(document).ready(function() {
             dataType : 'json',
             success: function (data) {
                 console.log(data);
-                window.location("html/Userprofile.html");
+                window.location.href("html/Userprofile.html");
             }
 
         })
