@@ -14,7 +14,7 @@ $(document).ready(function() {
 //            crossDomain : true,
             dataType : 'json',
             success: function (data) {
-                console.log(data);
+                window.localStorage.setItem("token", data);
                 window.location.href = "Userprofile.html";
             }
 

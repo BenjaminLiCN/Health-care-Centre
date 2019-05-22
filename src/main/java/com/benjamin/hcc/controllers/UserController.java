@@ -1,5 +1,6 @@
 package com.benjamin.hcc.controllers;
 
+import com.benjamin.hcc.dto.UserContextDTO;
 import com.benjamin.hcc.dto.UserDTO;
 import com.benjamin.hcc.dto.UserRegisterReqDTO;
 import com.benjamin.hcc.service.UserService;
@@ -7,6 +8,8 @@ import com.benjamin.hcc.utils.WebResults;
 import com.benjamin.hcc.utils.WebUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @Auther Benjamin(Jingyi Li) Li
@@ -31,21 +34,31 @@ public class UserController {
 
         return WebUtils.success(newToken);
     }
+
+    @PostMapping("update")
+    public WebResults updateInfo(UserRegisterReqDTO userRegisterReqDTO){
+        userService.updateUserInfo(userRegisterReqDTO);
+        return WebUtils.success();
+    }
+
     @PostMapping("login")
     public WebResults login(UserDTO userDTO){
         String token = userService.getTokenByLogin(userDTO);
         System.out.println(token);
         return WebUtils.success(token);
     }
-    @PostMapping("getUser")
+    @PostMapping("get")
     public WebResults getMyUserContext(){
         return WebUtils.success(userService.getMyUserContext());
     }
     //this interface will be used by admin
     //to be finished
-    @GetMapping("getUsers")
+    @GetMapping("getAll")
     public WebResults getAllUsers(){
-        return WebUtils.success();
+        List<UserContextDTO> users = userService.getAllUsers();
+        return WebUtils.success(users);
     }
+
+
 
 }

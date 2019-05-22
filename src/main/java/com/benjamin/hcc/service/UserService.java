@@ -4,6 +4,8 @@ import com.benjamin.hcc.dto.UserContextDTO;
 import com.benjamin.hcc.dto.UserDTO;
 import com.benjamin.hcc.dto.UserRegisterReqDTO;
 
+import java.util.List;
+
 /**
  * @author Benjamin Li li.benjamincn@gmail.com
  * @date 2018/8/9 14:04
@@ -44,4 +46,7 @@ public interface UserService {
      */
     void register(UserRegisterReqDTO userRegisterReqDTO);
 
+    List<UserContextDTO> getAllUsers();
+
+    void updateUserInfo(UserRegisterReqDTO userRegisterReqDTO);
 }

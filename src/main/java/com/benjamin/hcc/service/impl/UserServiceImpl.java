@@ -20,6 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.criteria.Path;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -71,6 +72,17 @@ public class UserServiceImpl extends BaseServiceImpl implements UserService {
         }
         return token;
     }
+
+    @Override
+    public List<UserContextDTO> getAllUsers(){
+        return null;
+    }
+
+    @Override public void updateUserInfo(UserRegisterReqDTO userRegisterReqDTO){
+        UserDO userDO = userRegisterReqMapper.to(userRegisterReqDTO);
+        userDao.save(userDO);
+    }
+
     @Override
     @Transactional(rollbackFor = Exception.class)
     public void register(UserRegisterReqDTO userRegisterReqDTO) {

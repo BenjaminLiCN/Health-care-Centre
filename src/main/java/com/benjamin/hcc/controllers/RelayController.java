@@ -12,6 +12,11 @@ import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.Map;
 
 /**
@@ -29,47 +34,70 @@ public class RelayController {
         service.execute(message);
         return WebUtils.success();
     }
-    @PostMapping("booking")
-    public JSONObject postToPort(@RequestBody JSONObject message){
-        RestTemplate restTemplate = new RestTemplate();
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
-        JSONObject data = null;
+    @RequestMapping(value = "/booking", method = RequestMethod.POST, produces = "application/json")
+    public String postTo(@RequestBody JSONObject message) {
+
+        JSONObject dataJSON = null;
         String type = null;
-        String url = null;
+        String urlString = null;
         try {
-            data = message.getJSONObject("data");
+            dataJSON = message.getJSONObject("data");
             type = message.getString("type");
-            url = message.getString("url");
+            urlString = message.getString("url");
+
+
+            URL url = new URL(urlString);
+
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            // 设置允许输出
+
+            conn.setDoInput(true);
+
+            // 设置不用缓存
+            conn.setUseCaches(false);
+            // 设置传递方式
+            conn.setRequestMethod(type);
+            // 设置维持长连接
+            conn.setRequestProperty("Connection", "Keep-Alive");
+            // 设置文件字符集:
+            //转换为字节数组
+
+            System.out.println(dataJSON.toString());
+            String urlParameters = "";
+
+            for (String key : dataJSON.keySet()) {
+                urlParameters+= key+"="+dataJSON.getString(key)+"&";
+            }
+            //发送Post请求
+            conn.setDoOutput(true);
+            DataOutputStream wr = new DataOutputStream(conn.getOutputStream());
+            wr.writeBytes(urlParameters);
+            wr.flush();
+            wr.close();
+
+            int responseCode = conn.getResponseCode();
+            System.out.println("\nSending 'POST' request to URL : " + url);
+            System.out.println("Post parameters : " + urlParameters);
+            System.out.println("Response Code : " + responseCode);
+
+            BufferedReader in = new BufferedReader(
+                    new InputStreamReader(conn.getInputStream()));
+            String inputLine;
+            StringBuffer response = new StringBuffer();
+
+            while ((inputLine = in.readLine()) != null) {
+                response.append(inputLine);
+            }
+            in.close();
+
+            //打印结果
+            System.out.println(response.toString());
+            if (response == null) return "";
+            return response.toString();
         } catch (Exception e) {
             System.out.println("Parsing JSON went wrong!");
         }
-
-        HttpEntity<String> entity = new HttpEntity<>(data.toJSONString(), headers);
-
-        HttpMethod method = null;
-        switch (type.toUpperCase()){
-            case "POST":
-                method = HttpMethod.POST;
-            break;
-            case "GET":
-                method = HttpMethod.GET;
-            case "PUT":
-                method = HttpMethod.PUT;
-            break;
-            case "DELETE":
-                method = HttpMethod.DELETE;
-            default:
-                return null;
-
-        }
-        ResponseEntity<JSONObject> exchange = restTemplate.exchange(
-                url,
-                method,//可能需要switch() 然后post,get,delete,put分开
-                entity,
-                JSONObject.class);
-        System.out.println(exchange.getBody().toString());
-        return exchange.getBody();
+        return "";
     }
 
 
