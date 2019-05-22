@@ -29,14 +29,26 @@ public class RelayController {
         service.execute(message);
         return WebUtils.success();
     }
-    @RequestMapping(value = "/booking", method = RequestMethod.POST, produces = "application/json")
-    public JSONObject postToPort(@RequestParam Map<String, String> requestInfo){
+    @PostMapping("booking")
+    public JSONObject postToPort(@RequestBody JSONObject message){
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
-        HttpEntity<String> entity = new HttpEntity<>(requestInfo.get("data"), headers);
+        JSONObject data = null;
+        String type = null;
+        String url = null;
+        try {
+            data = message.getJSONObject("data");
+            type = message.getString("type");
+            url = message.getString("url");
+        } catch (Exception e) {
+            System.out.println("Parsing JSON went wrong!");
+        }
+
+        HttpEntity<String> entity = new HttpEntity<>(data.toString(), headers);
+
         HttpMethod method = null;
-        switch (requestInfo.get("type").toUpperCase()){
+        switch (type.toUpperCase()){
             case "POST":
                 method = HttpMethod.POST;
             break;
@@ -52,10 +64,11 @@ public class RelayController {
 
         }
         ResponseEntity<JSONObject> exchange = restTemplate.exchange(
-                requestInfo.get("url"),
+                url,
                 method,//可能需要switch() 然后post,get,delete,put分开
                 entity,
                 JSONObject.class);
+        System.out.println(exchange.getBody().toString());
         return exchange.getBody();
     }
 
