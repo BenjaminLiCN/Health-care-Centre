@@ -5,8 +5,9 @@ $(document).ready(function() {
         var password = $("#password").val();
         payload.username = username;
         payload.password = password;
-
+        event.preventDefault();
         $.ajax({
+
             url: "http://18.191.27.125:8082/user/login",
             type: 'POST',
             data : payload,
