@@ -14,7 +14,7 @@ $(document).ready(function() {
             dataType : 'json',
             success: function (data) {
                 console.log(data);
-                window.location("Userprofile.html");
+                //window.location("html/Userprofile.html");
             },
             error:function(XMLHttpRequest, textStatus){
                 console.log(XMLHttpRequest);  //XMLHttpRequest.responseText    XMLHttpRequest.status   XMLHttpRequest.readyState
