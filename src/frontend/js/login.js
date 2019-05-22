@@ -7,7 +7,7 @@ $(document).ready(function() {
         payload.password = password;
 
         $.ajax({
-            url: "http://localhost:8082/user/login",
+            url: "http://18.191.27.125:8082/user/login",
             type: 'POST',
             data : payload,
 //            crossDomain : true,
