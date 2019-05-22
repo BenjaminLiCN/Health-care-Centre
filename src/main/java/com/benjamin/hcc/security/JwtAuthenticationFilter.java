@@ -69,9 +69,9 @@ public class JwtAuthenticationFilter extends BasicAuthenticationFilter {
 
 
     private void sendMessage(HttpServletResponse response, String message) throws IOException{
-        response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
-        response.setHeader("Pragma", "no-cache");
-        response.setHeader("Access-Control-Allow-Origin", "*");
+//        response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+//        response.setHeader("Pragma", "no-cache");
+//        response.setHeader("Access-Control-Allow-Origin", "*");
         response.setDateHeader("Expires", 0);
         response.setContentType("application/json");
         response.setStatus(HttpServletResponse.SC_OK);

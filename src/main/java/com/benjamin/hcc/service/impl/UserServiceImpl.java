@@ -79,8 +79,6 @@ public class UserServiceImpl extends BaseServiceImpl implements UserService {
         } else if (!userRegisterReqDTO.getUsername().matches(usernamePattern)){
             if (userRegisterReqDTO.getUsername().length()<5 || userRegisterReqDTO.getUsername().length()>20){
                 throw new hccException("Username must be 5 to 20 characters!");
-            }else {
-                throw new hccException("Username must begins with a letter!");
             }
         } else if (!userRegisterReqDTO.getPassword().matches(passwordPattern)) {
             if (userRegisterReqDTO.getPassword().length()<6 || userRegisterReqDTO.getPassword().length()>20){

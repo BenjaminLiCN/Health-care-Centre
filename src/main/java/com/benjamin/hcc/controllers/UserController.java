@@ -20,18 +20,21 @@ public class UserController {
     @Autowired
     private UserService userService;
     @PostMapping("register")
-    public WebResults register(@RequestBody UserRegisterReqDTO userRegisterReqDTO) {
+    public WebResults register(UserRegisterReqDTO userRegisterReqDTO) {
         userService.register(userRegisterReqDTO);
         return WebUtils.success();
     }
     @PostMapping("refresh")
     public WebResults refreshToken(){
         String newToken = userService.refreshToken();
+        System.out.println(newToken);
+
         return WebUtils.success(newToken);
     }
     @PostMapping("login")
-    public WebResults login(@RequestBody UserDTO userDTO){
+    public WebResults login(UserDTO userDTO){
         String token = userService.getTokenByLogin(userDTO);
+        System.out.println(token);
         return WebUtils.success(token);
     }
     @PostMapping("getUser")
