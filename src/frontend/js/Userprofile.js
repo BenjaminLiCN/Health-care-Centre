@@ -217,7 +217,7 @@ $(document).ready(function() {
                 $.ajax({
                     url: 'http://18.191.27.125:8082/booking/',
                     type: 'POST',
-                    data : ,
+                    data : wrappedData,
                     dataType : 'json',
                     success: function (data) {
                         alert(" Booking successfully");
