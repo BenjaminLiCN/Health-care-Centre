@@ -28,6 +28,9 @@ public interface UserRegisterReqMapper {
      * @param userRegisterReqDTO
      * @return
      */
+    @Mappings({
+            @Mapping(source = "isAdmin",target = "isAdmin")
+    })
     public UserDO to(UserRegisterReqDTO userRegisterReqDTO);
 
     /**

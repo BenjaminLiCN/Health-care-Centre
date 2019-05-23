@@ -24,6 +24,15 @@ public class UserRegisterReqDTO  {
     private String gender;
     private String number;
     private String homeAddress;
+    private int isAdmin;
+
+    public int getIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(int isAdmin) {
+        this.isAdmin = isAdmin;
+    }
 
     public String getHomeAddress() {
         return homeAddress;

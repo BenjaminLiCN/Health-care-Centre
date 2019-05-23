@@ -1,11 +1,24 @@
 $(document).ready(function() {
+    for(var i = 0;i <3;i++){
+        if(window.localStorage.name!="")
+            $("#name"+i).html(window.localStorage.name);
+    }
+
+    var booking = {
+        "userId":window.localStorage.id,
+        "professionalId":1,
+        "scheduledDate":"14/05/2019",
+        "scheduleStart": 12,
+        "scheduleEnd":13,
+        "description": "taefaefeafjeaifjes"
+    }
     var wrappedData = {
-                    "url" : "http://18.191.27.125:8082/booking",
-                    "type" : "POST",
-                    "data" : booking,
-                    "dataType" : "json",
-                    "crossDomain" : true
-                }
+        "url" : "http://18.191.27.125:8082/booking",
+        "type" : "POST",
+        "data" : booking,
+        "dataType" : "json",
+        "crossDomain" : true
+    }
     $.ajax({
         url: "http://18.191.27.125:8081/booking/professional/",
         type: 'POST',
@@ -301,5 +314,10 @@ $(document).ready(function() {
 
 
 })
+
+function logOut(){
+    window.localStorage.clear();
+    window.location.reload();
+}
 
 

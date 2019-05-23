@@ -1,5 +1,6 @@
 package com.benjamin.hcc.service;
 
+import com.alibaba.fastjson.JSONObject;
 import com.benjamin.hcc.dto.UserContextDTO;
 import com.benjamin.hcc.dto.UserDTO;
 import com.benjamin.hcc.dto.UserRegisterReqDTO;
@@ -49,4 +50,8 @@ public interface UserService {
     List<UserContextDTO> getAllUsers();
 
     void updateUserInfo(UserRegisterReqDTO userRegisterReqDTO);
+
+    JSONObject getUserByLogin(UserDTO userDTO);
+
+    void generateAdmin();
 }

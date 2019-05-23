@@ -23,7 +23,15 @@ public class UserContextDTO {
     private String gender;
     private String email;
     private String number;
+    private int isAdmin;
 
+    public int getIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(int isAdmin) {
+        this.isAdmin = isAdmin;
+    }
 
     public String getGender() {
         return gender;

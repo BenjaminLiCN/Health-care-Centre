@@ -1,5 +1,6 @@
 package com.benjamin.hcc.service.impl;
 
+import com.alibaba.fastjson.JSONObject;
 import com.benjamin.hcc.dao.UserDAO;
 import com.benjamin.hcc.domain.UserDO;
 import com.benjamin.hcc.dto.UserContextDTO;
@@ -82,6 +83,45 @@ public class UserServiceImpl extends BaseServiceImpl implements UserService {
         UserDO userDO = userRegisterReqMapper.to(userRegisterReqDTO);
         userDao.save(userDO);
     }
+    public JSONObject getUserByLogin(UserDTO userDTO){
+        UserDO userDO = userDao.findOne((root, criteriaQuery, criteriaBuilder) -> {
+            Path<String> uidPath = root.get("email");
+            Path<String> pwdPath = root.get("password");
+            return criteriaBuilder.and(
+                    criteriaBuilder.equal(uidPath, userDTO.getEmail()),
+                    criteriaBuilder.equal(pwdPath, userDTO.getPassword())
+            );
+        });
+        if (userDO == null) {
+            throw new hccException("Incorrect username or password!");
+        } else {
+
+            UserContextDTO userContextDTO  = getUserContextById(userDO.getId());
+            long id = userContextDTO.getId();
+            int isAdmin = userContextDTO.getIsAdmin();
+            String name = userContextDTO.getUsername();
+            JSONObject response = new JSONObject();
+            response.put("id",id);
+            response.put("admin",isAdmin);
+            response.put("name",name);
+            return response;
+        }
+        //create a default admin account
+
+    }
+
+    public void generateAdmin(){
+        UserRegisterReqDTO userRegisterReqDTO = new UserRegisterReqDTO();
+        userRegisterReqDTO.setEmail("admin@hcc.com.au");
+        userRegisterReqDTO.setGender("0");
+        userRegisterReqDTO.setUsername("Elena");
+        userRegisterReqDTO.setHomeAddress("6 Wedgewood Rd., Hallam, Victoria.");
+        userRegisterReqDTO.setPassword("123456");
+        userRegisterReqDTO.setNumber("0452662817");
+        userRegisterReqDTO.setIsAdmin(1);
+        UserDO userDO = userRegisterReqMapper.to(userRegisterReqDTO);
+        userDao.save(userDO);
+    }
 
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -151,6 +191,7 @@ public class UserServiceImpl extends BaseServiceImpl implements UserService {
         userContextDTO.setEmail(userDO.getEmail());
         userContextDTO.setGender(userDO.getGender());
         userContextDTO.setNumber(userDO.getNumber());
+        userContextDTO.setIsAdmin(userDO.getIsAdmin());
         return userContextDTO;
     }
 

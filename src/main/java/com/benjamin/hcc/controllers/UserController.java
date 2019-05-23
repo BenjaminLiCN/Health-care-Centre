@@ -1,5 +1,7 @@
 package com.benjamin.hcc.controllers;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.benjamin.hcc.dto.UserContextDTO;
 import com.benjamin.hcc.dto.UserDTO;
 import com.benjamin.hcc.dto.UserRegisterReqDTO;
@@ -42,10 +44,11 @@ public class UserController {
     }
 
     @PostMapping("login")
-    public WebResults login(UserDTO userDTO){
-        String token = userService.getTokenByLogin(userDTO);
-        System.out.println(token);
-        return WebUtils.success(token);
+    public JSONObject login(UserDTO userDTO){
+        //String token = userService.getTokenByLogin(userDTO);
+        JSONObject user = userService.getUserByLogin(userDTO);
+        //System.out.println(token);
+        return user;
     }
     @PostMapping("get")
     public WebResults getMyUserContext(){
