@@ -3,26 +3,15 @@ $(document).ready(function() {
         if(window.localStorage.name!="")
             $("#name"+i).html(window.localStorage.name);
     }
-
-    var booking = {
-        "userId":window.localStorage.id,
-        "professionalId":1,
-        "scheduledDate":"14/05/2019",
-        "scheduleStart": 12,
-        "scheduleEnd":13,
-        "description": "taefaefeafjeaifjes"
-    }
-    var wrappedData = {
-        "url" : "http://18.191.27.125:8082/booking",
-        "type" : "POST",
-        "data" : booking,
-        "dataType" : "json",
-        "crossDomain" : true
-    }
+    var wrappedData = {};
+    wrappedData.dataType = "json";
+    wrappedData.data = "";
+    wrappedData.url = "http://18.191.27.125:8081/booking/professional/";
+    wrappedData.type = "POST";
     $.ajax({
-        url: "http://18.191.27.125:8081/booking/professional/",
+        url: "http://18.191.27.125:8082/booking",
         type: 'POST',
-        data : '',
+        data : wrappedData,
         success: function (data) {
                 $(".tbody_Podiatrist").empty();
                 $(".tbody_naturopath").empty();
@@ -49,14 +38,21 @@ $(document).ready(function() {
                         );
 
                         var professional_id=item.id
-                        var baseUrl = 'http://xfchen.tech:8081/booking/professional/availabletime/';
+                        var baseUrl = 'http://18.191.27.125:8081/booking/professional/availabletime/';
                         var a = item.id;
                         var finalUrl = baseUrl + a;
                         var divB = $("tbody[value='"+item.id+"']")
+
+                        var wrappedData = {};
+                        wrappedData.dataType = "json";
+                        wrappedData.data = "";
+                        wrappedData.url = finalUrl;
+                        wrappedData.type = "GET";
+
                         $.ajax({
-                            url: finalUrl,
-                            type: 'GET',
-                            data : '',
+                            url: "http://18.191.27.125:8082/booking",
+                            type: 'POST',
+                            data : wrappedData,
                             success: function (data) {
                                 $.each(data, function(index, item){
                                     $(divB).append(
@@ -107,14 +103,19 @@ $(document).ready(function() {
                         );
 
                         var professional_id=item.id
-                        var baseUrl = 'http://xfchen.tech:8081/booking/professional/availabletime/';
+                        var baseUrl = 'http://18.191.27.125:8081/booking/professional/availabletime/';
                         var a = item.id;
                         var finalUrl = baseUrl + a;
                         var divnaturopath_schedule = $("tbody[value='"+item.id+"']")
+                        var wrappedData = {};
+                        wrappedData.dataType = "json";
+                        wrappedData.data = "";
+                        wrappedData.url = finalUrl;
+                        wrappedData.type = "GET";
                         $.ajax({
-                            url: finalUrl,
-                            type: 'GET',
-                            data : '',
+                            url: "http://18.191.27.125:8082/booking",
+                            type: 'POST',
+                            data : wrappedData,
                             success: function (data) {
                                 $.each(data, function(index, item){
                                     $(divnaturopath_schedule).append(
@@ -165,14 +166,20 @@ $(document).ready(function() {
                         );
 
                         var professional_id=item.id
-                        var baseUrl = 'http://xfchen.tech:8081/booking/professional/availabletime/';
+                        var baseUrl = 'http://18.191.27.125:8081/booking/professional/availabletime/';
                         var a = item.id;
                         var finalUrl = baseUrl + a;
                         var divchiropractor_schedule = $("tbody[value='"+item.id+"']")
+                        var wrappedData = {};
+                        wrappedData.dataType = "json";
+                        wrappedData.data = "";
+                        wrappedData.url = finalUrl;
+                        wrappedData.type = "GET";
+
                         $.ajax({
-                            url: finalUrl,
-                            type: 'GET',
-                            data : '',
+                            url: "http://18.191.27.125:8082/booking",
+                            type: 'POST',
+                            data : wrappedData,
                             success: function (data) {
                                 $.each(data, function(index, item){
                                     $(divchiropractor_schedule).append(
@@ -252,11 +259,15 @@ $(document).ready(function() {
 
 
     })
-
+    var wrappedData = {};
+    wrappedData.dataType = "json";
+    wrappedData.data = "";
+    wrappedData.url = "http://18.191.27.125:8081/booking/user/1";
+    wrappedData.type = "GET"
     $.ajax({
-        url: 'http://xfchen.tech:8081/booking/user/1',
-        type: 'GET',
-        data : '',
+        url: 'http://18.191.27.125:8082/booking',
+        type: 'POST',
+        data : wrappedData,
         success: function (data) {
             $.each(data, function(index, item){
                 var divbooking_history = document.getElementById("booking_history");
@@ -289,25 +300,26 @@ $(document).ready(function() {
 
 
             var booking_id=$(this).val()
-            var bookingUrl = 'http://xfchen.tech:8081/booking/';
+            var bookingUrl = 'http://18.191.27.125:8081/booking/';
             var finalbookingUrl = bookingUrl + booking_id;
+            var wrappedData = {};
+            wrappedData.dataType = "json";
+            wrappedData.data = "";
+            wrappedData.url = finalbookingUrl;
+            wrappedData.type = "DELETE"
+
             $.ajax({
-                url: finalbookingUrl,
-                type: 'DELETE',
-                data : '',
+                url: "http://18.191.27.125:8082/booking",
+                type: 'POST',
+                data : wrappedData,
                 dataType : 'json',
                 crossDomain : true,
                 success: function (data) {
                     alert("Cancel Successfully");
                     window.location.reload();
                 }
-
             })
-
         })
-
-
-
     })
 
 

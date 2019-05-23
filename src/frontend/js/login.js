@@ -8,7 +8,7 @@ $(document).ready(function() {
         event.preventDefault();
         //18.191.27.125
         $.ajax({
-            url: "http://localhost:8082/user/login",
+            url: "http://18.191.27.125:8082/user/login",
             type: 'POST',
             data : payload,
 //            crossDomain : true,
@@ -22,9 +22,6 @@ $(document).ready(function() {
                 storage.id = id;
                 storage.admin = admin;
                 storage.name = name;
-                console.log(name)
-                console.log(admin == 1)
-                alert();
                 window.location.href = admin == 1 ? "Adminprofile.html" : "Userprofile.html";
             },
             error: function(data){

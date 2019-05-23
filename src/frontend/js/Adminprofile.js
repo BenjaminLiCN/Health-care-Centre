@@ -1,8 +1,13 @@
 $(document).ready(function() {
+    var wrappedData = {};
+    wrappedData.dataType = "json";
+    wrappedData.data = "";
+    wrappedData.url = "http://18.191.27.125:8081/booking/professional/";
+    wrappedData.type = "POST";
     $.ajax({
-        url: "http://xfchen.tech:8081/booking/professional/",
-        type: 'POST',
-        data : '',
+        url: "http://18.191.27.125:8082/booking/",
+        type: 'GET',
+        data : wrappedData,
         success: function (data) {
             $(".tbody_Podiatrist").empty();
             $(".tbody_naturopath").empty();
@@ -16,16 +21,15 @@ $(document).ready(function() {
                         +"<div class='detail row'>" + "ID" + "<div class='detail_item_1'>" + item.id + "</div></div>"
                         +"<div class='detail row'>" + "Name" + "<div class='detail_item_2'>" + item.name +"</div>"
                         +"<div class='detail_item_4'>"
-                        +" <button type='button' id='"+item.id+"' class='btn btn-success delete_button'  data-toggle='modal' data-target='#myModal'>"
-                        + "Delete"+"</button>"+"</div></div>"
+                        +"</div></div>"
                         +"<div class='detail row'>" + "Per-hour"+ "  " + "Charge" + "<div class='detail_item_3'>" + item.charge + "</div></div>"
 
                         +"<thead><tr>"
                         +"<th>" + "ScheduleDate" + "</th>"
                         +"<th>" + "PeriodStart" + "</th>"
                         +"<th>" + "PeriodEnd" + "</th>"
-                        +"<th>" + "Book" + "Now" + "</th>"
-                        +"<th>" + "Delete" + "It" + "</th>"
+                        +"<th>" + "</th>"
+                        +"<th>" + "</th>"
                         +"</tr></thead>"
                         +"<tbody class='tbody_Poduatrist_scheduleDate' value='"+item.id+"'></tbody>" //创建一个BODY
                         +"</table>"
@@ -33,14 +37,20 @@ $(document).ready(function() {
                     );
 
                     var professional_id=item.id
-                    var baseUrl = 'http://xfchen.tech:8081/booking/professional/availabletime/';
+                    var baseUrl = 'http://18.191.27.125:8081/booking/professional/availabletime/';
                     var a = item.id;
                     var finalUrl = baseUrl + a;
                     var divB = $("tbody[value='"+item.id+"']")
+                    var wrappedData = {};
+                    wrappedData.dataType = "json";
+                    wrappedData.data = "";
+                    wrappedData.url = finalUrl;
+                    wrappedData.type = "GET";
+
                     $.ajax({
-                        url: finalUrl,
-                        type: 'GET',
-                        data : '',
+                        url: "http://18.191.27.125:8082/booking",
+                        type: 'POST',
+                        data: wrappedData,
                         success: function (data) {
                             $.each(data, function(index, item){
                                 $(divB).append(
@@ -48,12 +58,8 @@ $(document).ready(function() {
                                     +"<td>" + item.scheduleDate + "</td>"
                                     +"<td>" + item.periodStart+ ":00" + "</td>"
                                     +"<td>" + item.periodEnd + ":00" + "</td>"
-                                    +"<td>" + " <button type='button' id='"+item.id+"' class='btn btn-success book_button'  data-toggle='modal' data-target='#myModal'>"
-                                    + "Book Now"
-                                    +"</button>" + "</td>"
-                                    +"<td>" + " <button type='button' id='"+item.id+"' class='btn btn-success delete_button'  data-toggle='modal' data-target='#myModal'>"
-                                    + "Delete It"  //QUESTION1 id ?
-                                    +"</button>" + "</td>"
+                                    +"<td>" + "</td>"
+                                    +"<td>" + "</td>"
                                     +"</tr>"
 
                                 );
@@ -87,8 +93,8 @@ $(document).ready(function() {
                         +"<th>" + "ScheduleDate" + "</th>"
                         +"<th>" + "PeriodStart" + "</th>"
                         +"<th>" + "PeriodEnd" + "</th>"
-                        +"<th>" + "Book" + "Now" + "</th>"
-                        +"<th>" + "Delete" + "It" + "</th>"
+                        +"<th>" + "</th>"
+                        +"<th>" + "</th>"
                         +"</tr></thead>"
                         +"<tbody class='tbody_naturopath_scheduleDate'  value='"+item.id+"'></tbody>"
                         +"</table>"
@@ -96,13 +102,19 @@ $(document).ready(function() {
                     );
 
                     var professional_id=item.id
-                    var baseUrl = 'http://xfchen.tech:8081/booking/professional/availabletime/';
+                    var baseUrl = 'http://18.191.27.125:8081/booking/professional/availabletime/';
                     var a = item.id;
                     var finalUrl = baseUrl + a;
                     var divnaturopath_schedule = $("tbody[value='"+item.id+"']")
+                    var wrappedData = {};
+                    wrappedData.dataType = "json";
+                    wrappedData.data = "";
+                    wrappedData.url = finalUrl;
+                    wrappedData.type = "GET";
+
                     $.ajax({
-                        url: finalUrl,
-                        type: 'GET',
+                        url: "18.191.27.125:8082/booking",
+                        type: 'POST',
                         data : '',
                         success: function (data) {
                             $.each(data, function(index, item){
@@ -111,12 +123,8 @@ $(document).ready(function() {
                                     +"<td>" + item.scheduleDate + "</td>"
                                     +"<td>" + item.periodStart + ":00" + "</td>"
                                     +"<td>" + item.periodEnd +  ":00" +"</td>"
-                                    +"<td>" + " <button type='button' id='"+item.id+"' class='btn btn-success book_button'  data-toggle='modal' data-target='#myModal'>"
-                                    + "Book Now"
-                                    +"</button>" +"</td>"
-                                    +"<td>" + " <button type='button' id='"+item.id+"' class='btn btn-success delete_button'  data-toggle='modal' data-target='#myModal'>"
-                                    + "Delete It"
-                                    +"</button>" + "</td>"
+                                    +"<td>" + "</td>"
+                                    +"<td>" + "</td>"
                                     +"</tr>"
 
                                 );
@@ -149,8 +157,8 @@ $(document).ready(function() {
                         +"<th>" + "ScheduleDate" + "</th>"
                         +"<th>" + "PeriodStart" + "</th>"
                         +"<th>" + "PeriodEnd" + "</th>"
-                        +"<th>" + "Book" + "now" + "</th>"
-                        +"<th>" + "Delete" + "It" + "</th>"
+                        +"<th>" + "</th>"
+                        +"<th>" + "</th>"
                         +"</tr></thead>"
                         +"<tbody class='tbody_chiropractor_scheduleDate' value='"+item.id+"'></tbody>"
                         +"</table>"
@@ -158,14 +166,20 @@ $(document).ready(function() {
                     );
 
                     var professional_id=item.id
-                    var baseUrl = 'http://xfchen.tech:8081/booking/professional/availabletime/';
+                    var baseUrl = 'http://18.191.27.125:8081/booking/professional/availabletime/';
                     var a = item.id;
                     var finalUrl = baseUrl + a;
-                    var divchiropractor_schedule = $("tbody[value='"+item.id+"']")
+                    var divchiropractor_schedule = $("tbody[value='"+item.id+"']");
+                    var wrappedData = {};
+                    wrappedData.dataType = "json";
+                    wrappedData.data = "";
+                    wrappedData.url = finalUrl;
+                    wrappedData.type = "GET";
+
                     $.ajax({
-                        url: finalUrl,
-                        type: 'GET',
-                        data : '',
+                        url: "http://18.191.27.125:8082/booking",
+                        type: 'POST',
+                        data : wrappedData,
                         success: function (data) {
                             $.each(data, function(index, item){
                                 $(divchiropractor_schedule).append(
@@ -173,12 +187,8 @@ $(document).ready(function() {
                                     +"<td>" + item.scheduleDate +  "</td>"
                                     +"<td>" + item.periodStart + ":00" + "</td>"
                                     +"<td>" + item.periodEnd + ":00" +"</td>"
-                                    +"<td>" + " <button type='button' id='"+item.id+"' class='btn btn-success book_button'  data-toggle='modal' data-target='#myModal'>"
-                                    + "Book Now"
-                                    +"</button>" + "</td>"
-                                    +"<td>" + " <button type='button' id='"+item.id+"' class='btn btn-success delete_button'  data-toggle='modal' data-target='#myModal'>"
-                                    + "Delete It"
-                                    +"</button>" + "</td>"
+                                    +"<td>" + "</td>"
+                                    +"<td>" + "</td>"
                                     +"</tr>"
 
                                 );
@@ -213,17 +223,24 @@ $(document).ready(function() {
             var periodEnd =  $(this).data().PeriodEnd;
             var professionalId =  $(this).data().professional_id;
             $(document).on("click", ".submit_booking", function (){  //用来激活弹窗
+                var booking = {
+                    "userId":window.localStorage.id,
+                    "professionalId":professionalId,
+                    "scheduledDate":ScheduleDate,
+                    "scheduleStart": PeriodStart,
+                    "scheduleEnd":periodEnd,
+                    "description": $(".book_message").val()
+                };
+                var wrappedData = {};
+                wrappedData.dataType = "json";
+                wrappedData.data = booking;
+                wrappedData.url = "http://18.191.27.125:8081/booking";
+                wrappedData.type = "POST";
+                "http://18.191.27.125:8081/booking/professional/"
                 $.ajax({
-                    url: 'http://xfchen.tech:8081/booking/',
+                    url: 'http://18.191.27.125:8082/booking',
                     type: 'POST',
-                    data : {
-                        "userId":1,
-                        "professionalId":professionalId,
-                        "scheduledDate":ScheduleDate,
-                        "scheduleStart": PeriodStart,
-                        "scheduleEnd":periodEnd,
-                        "description": $(".book_message").val()
-                    },
+                    data : wrappedData,
                     dataType : 'json',
                     crossDomain : true,
                     success: function (data) {
@@ -242,13 +259,22 @@ $(document).ready(function() {
     $(function () {
         $(document).on("click", ".cancel_booking", function (){
 
-            var booking_id=$(this).val()
-            var bookingUrl = 'http://xfchen.tech:8081/booking/';
+            var booking_id=$(this).val();
+            console.log(booking_id.val());
+            var bookingUrl = 'http://18.191.27.125:8081/booking/';
             var finalbookingUrl = bookingUrl + booking_id;
+
+
+            var wrappedData = {};
+            wrappedData.dataType = "json";
+            wrappedData.data = "";
+            wrappedData.url = finalbookingUrl;
+            wrappedData.type = "DELETE";
+
             $.ajax({
-                url: finalbookingUrl,
-                type: 'DELETE',
-                data : '',
+                url: "http://18.191.27.125:8082/booking/",
+                type: 'POST',
+                data : wrappedData,
                 dataType : 'json',
                 crossDomain : true,
                 success: function (data) {
@@ -267,8 +293,7 @@ $(document).ready(function() {
     $(function () {
         $(document).on("click", "#singlebutton", function (){
             var options = $("#choose_type option:selected");
-            console.log(options.val());
-            console.log($("#charge1").val());
+
             $.ajax({
                 url: 'http://18.191.27.125:8082/booking',
                 type: 'POST',
@@ -289,6 +314,42 @@ $(document).ready(function() {
         })
 
 
+
+    })
+    var wrappedData = {};
+    wrappedData.dataType = "json";
+    wrappedData.data = "";
+    wrappedData.url = "http://18.191.27.125:8081/booking";
+    wrappedData.type = "GET";
+    $.ajax({
+        url: 'http://18.191.27.125:8082/booking',
+        type: 'GET',
+        data : wrappedData,
+        success: function (data) {
+            $.each(data, function(index, item){
+                console.log(item);
+                var divbooking_history = document.getElementById("view_booking");
+                $(divbooking_history).append(
+                    "<tr>"
+                    +"<td>" + item.professionalDO.name + "</td>"
+                    +"<td>" + item.professionalDO.charge + "</td>"
+                    +"<td>" + item.scheduleDate + "</td>"
+                    +"<td>" + item.start + ":00" + "</td>"
+                    +"<td>" + item.end + ":00" +"</td>"
+                    +"<td>" + item.description +"</td>"
+                    +"<td>" + item.isCancelled + "</td>"
+                    +"<td>" + "<button type='button'  value='"+item.id+"' class='cancel_booking' class='btn btn-success'>" + 'Cancel Now'+ '</button>'
+                    + "</td>"
+                    +"</tr>"
+
+                );
+                if(item.isCancelled  == 1){
+                    $('button[value="'+item.id+'"]').prop('disabled', true);
+                }
+
+            })
+
+        }
 
     })
 
