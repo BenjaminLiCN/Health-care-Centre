@@ -11,7 +11,7 @@ $(document).ready(function() {
             url: "http://18.191.27.125:8082/user/login",
             type: 'POST',
             data : payload,
-//            crossDomain : true,
+            crossDomain : true,
             dataType : 'json',
             success: function (data) {
                 var id = data.id;

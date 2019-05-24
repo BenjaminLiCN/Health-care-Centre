@@ -12,6 +12,8 @@ $(document).ready(function() {
         url: "http://18.191.27.125:8082/booking",
         type: 'POST',
         data : wrappedData,
+        dataType : 'json',
+        crossDomain : 'true',
         success: function (data) {
                 $(".tbody_Podiatrist").empty();
                 $(".tbody_naturopath").empty();
@@ -53,6 +55,8 @@ $(document).ready(function() {
                             url: "http://18.191.27.125:8082/booking",
                             type: 'POST',
                             data : wrappedData,
+                            dataType : 'json',
+                            crossDomain : true,
                             success: function (data) {
                                 $.each(data, function(index, item){
                                     $(divB).append(
@@ -116,6 +120,8 @@ $(document).ready(function() {
                             url: "http://18.191.27.125:8082/booking",
                             type: 'POST',
                             data : wrappedData,
+                            dataType : 'json',
+                            crossDomain : true,
                             success: function (data) {
                                 $.each(data, function(index, item){
                                     $(divnaturopath_schedule).append(
@@ -180,6 +186,8 @@ $(document).ready(function() {
                             url: "http://18.191.27.125:8082/booking",
                             type: 'POST',
                             data : wrappedData,
+                            dataType: 'json',
+                            crossDomain: true,
                             success: function (data) {
                                 $.each(data, function(index, item){
                                     $(divchiropractor_schedule).append(
@@ -236,8 +244,7 @@ $(document).ready(function() {
                 "url" : "http://18.191.27.125:8081/booking",
                 "type" : "POST",
                 "data" : booking,
-                "dataType" : "json",
-                "crossDomain" : true
+                "dataType" : "json"
             }
 
             $(document).on("click", ".submit_booking", function (){
@@ -246,7 +253,7 @@ $(document).ready(function() {
                     url: 'http://18.191.27.125:8082/booking/',
                     type: 'POST',
                     data : wrappedData,
-                    dataType : 'json',
+                    dataType : 'json',crossDomain : true,
                     success: function (data) {
                         alert(" Booking successfully");
                         window.location.reload();
@@ -268,6 +275,8 @@ $(document).ready(function() {
         url: 'http://18.191.27.125:8082/booking',
         type: 'POST',
         data : wrappedData,
+        crossDomain: true,
+        dataType: 'json',
         success: function (data) {
             $.each(data, function(index, item){
                 var divbooking_history = document.getElementById("booking_history");
