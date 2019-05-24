@@ -23,7 +23,9 @@
               success: function (data) {
                   console.log(data);
                   window.location.href = "Login.html";
+              },
+              error: function (data) {
+                  alert("Some information is duplicated!");
               }
-
           })
-      }
+  }

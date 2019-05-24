@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    for(var i = 0;i <3;i++){
+    for(var i = 1;i < 4;i++){
         if(window.localStorage.name!="")
             $("#name"+i).html(window.localStorage.name);
     }

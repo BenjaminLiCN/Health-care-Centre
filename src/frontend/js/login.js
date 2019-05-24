@@ -18,7 +18,6 @@ $(document).ready(function() {
                 var admin = data.admin;
                 var name = data.name;
                 var storage=window.localStorage;
-
                 storage.id = id;
                 storage.admin = admin;
                 storage.name = name;
@@ -29,6 +28,7 @@ $(document).ready(function() {
                     alert("Incorrect username(email) or password!");
                 else
                     alert("Internal server error!");
+                    console.log(XMLHttpRequest.responseText);
             }
 
         })
