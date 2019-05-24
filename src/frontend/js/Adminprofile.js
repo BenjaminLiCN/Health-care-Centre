@@ -2,10 +2,10 @@ $(document).ready(function() {
     var wrappedData = {};
     wrappedData.dataType = "json";
     wrappedData.data = "";
-    wrappedData.url = "http://localhost:8081/booking/professional/";
+    wrappedData.url = "http://18.191.27.125:8081/booking/professional/";
     wrappedData.type = "GET";
     $.ajax({
-        url: "http://localhost:8082/booking/",
+        url: "http://18.191.27.125:8082/booking/",
         type: 'POST',
         data : wrappedData,
         success: function (data) {
@@ -37,7 +37,7 @@ $(document).ready(function() {
                     );
 
                     var professional_id=item.id
-                    var baseUrl = 'http://localhost:8081/booking/professional/availabletime/';
+                    var baseUrl = 'http://18.191.27.125:8081/booking/professional/availabletime/';
                     var a = item.id;
                     var finalUrl = baseUrl + a;
                     var divB = $("tbody[value='"+item.id+"']")
@@ -48,7 +48,7 @@ $(document).ready(function() {
                     wrappedData.type = "GET";
 
                     $.ajax({
-                        url: "http://localhost:8082/booking",
+                        url: "http://18.191.27.125:8082/booking",
                         type: 'POST',
                         data : wrappedData,
                         success: function (data) {
@@ -102,7 +102,7 @@ $(document).ready(function() {
                     );
 
                     var professional_id=item.id
-                    var baseUrl = 'http://localhost:8081/booking/professional/availabletime/';
+                    var baseUrl = 'http://18.191.27.125:8081/booking/professional/availabletime/';
                     var a = item.id;
                     var finalUrl = baseUrl + a;
                     var divnaturopath_schedule = $("tbody[value='"+item.id+"']")
@@ -113,7 +113,7 @@ $(document).ready(function() {
                     wrappedData.type = "GET";
 
                     $.ajax({
-                        url: "http://localhost:8082/booking",
+                        url: "http://18.191.27.125:8082/booking",
                         type: 'POST',
                         data : wrappedData,
                         success: function (data) {
@@ -166,7 +166,7 @@ $(document).ready(function() {
                     );
 
                     var professional_id=item.id
-                    var baseUrl = 'http://localhost:8081/booking/professional/availabletime/';
+                    var baseUrl = 'http://18.191.27.125:8081/booking/professional/availabletime/';
                     var a = item.id;
                     var finalUrl = baseUrl + a;
                     var divchiropractor_schedule = $("tbody[value='"+item.id+"']");
@@ -177,7 +177,7 @@ $(document).ready(function() {
                     wrappedData.type = "GET";
 
                     $.ajax({
-                        url: "http://localhost:8082/booking",
+                        url: "http://18.191.27.125:8082/booking",
                         type: 'POST',
                         data : wrappedData,
                         success: function (data) {
@@ -234,11 +234,11 @@ $(document).ready(function() {
                 var wrappedData = {};
                 wrappedData.dataType = "json";
                 wrappedData.data = booking;
-                wrappedData.url = "http://localhost:8081/booking";
+                wrappedData.url = "http://18.191.27.125:8081/booking";
                 wrappedData.type = "POST";
-                "http://localhost:8081/booking/professional/"
+                "http://18.191.27.125:8081/booking/professional/"
                 $.ajax({
-                    url: 'http://localhost:8082/booking',
+                    url: 'http://18.191.27.125:8082/booking',
                     type: 'POST',
                     data : wrappedData,
                     dataType : 'json',
@@ -260,7 +260,7 @@ $(document).ready(function() {
 
             var booking_id=$(this).val();
             console.log(booking_id.val());
-            var bookingUrl = 'http://localhost:8081/booking/';
+            var bookingUrl = 'http://18.191.27.125:8081/booking/';
             var finalbookingUrl = bookingUrl + booking_id;
 
 
@@ -271,7 +271,7 @@ $(document).ready(function() {
             wrappedData.type = "DELETE";
 
             $.ajax({
-                url: "http://localhost:8082/booking/",
+                url: "http://18.191.27.125:8082/booking/",
                 type: 'POST',
                 data : wrappedData,
                 dataType : 'json',
@@ -301,10 +301,10 @@ $(document).ready(function() {
             var wrappedData = {};
             wrappedData.dataType = "json";
             wrappedData.data = pro;
-            wrappedData.url = "http://localhost:8081/booking/professional";
+            wrappedData.url = "http://18.191.27.125:8081/booking/professional";
             wrappedData.type = "POST";
             $.ajax({
-                url: 'http://localhost:8082/booking',
+                url: 'http://18.191.27.125:8082/booking',
                 type: 'POST',
                 data : wrappedData,
                 dataType : 'json',
@@ -322,10 +322,10 @@ $(document).ready(function() {
     var wrappedData = {};
     wrappedData.dataType = "json";
     wrappedData.data = "";
-    wrappedData.url = "http://localhost:8081/booking";
+    wrappedData.url = "http://18.191.27.125:8081/booking";
     wrappedData.type = "GET";
     $.ajax({
-        url: 'http://localhost:8082/booking',
+        url: 'http://18.191.27.125:8082/booking',
         type: 'POST',
         data : wrappedData,
         success: function (data) {
