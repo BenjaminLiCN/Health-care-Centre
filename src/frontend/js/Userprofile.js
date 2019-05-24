@@ -13,7 +13,6 @@ $(document).ready(function() {
         url: "http://18.191.27.125:8082/booking",
         type: 'POST',
         data : wrappedData,
-        dataType : 'json',
         crossDomain : true,
         success: function (data) {
                 $(".tbody_Podiatrist").empty();
