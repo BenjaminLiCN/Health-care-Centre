@@ -106,7 +106,6 @@ public class UserServiceImpl extends BaseServiceImpl implements UserService {
             response.put("name",name);
             return response;
         }
-        //create a default admin account
 
     }
 

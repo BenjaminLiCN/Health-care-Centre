@@ -3,10 +3,10 @@ $(document).ready(function() {
     wrappedData.dataType = "json";
     wrappedData.data = "";
     wrappedData.url = "http://18.191.27.125:8081/booking/professional/";
-    wrappedData.type = "POST";
+    wrappedData.type = "GET";
     $.ajax({
         url: "http://18.191.27.125:8082/booking/",
-        type: 'GET',
+        type: 'POST',
         data : wrappedData,
         success: function (data) {
             $(".tbody_Podiatrist").empty();
@@ -293,15 +293,23 @@ $(document).ready(function() {
     $(function () {
         $(document).on("click", "#singlebutton", function (){
             var options = $("#choose_type option:selected");
-
+            var pro = {
+                "charge":$("#charge1").val(),
+                "email":$("#textinput2").val(),
+                "name": $("#textinput1").val(),
+                "number":"",
+                "type":options.val()
+            }
+            var wrappedData = {};
+            wrappedData.dataType = "json";
+            wrappedData.data = pro;
+            wrappedData.url = "http://18.191.27.125:8081/booking/professional";
+            wrappedData.type = "POST";
             $.ajax({
                 url: 'http://18.191.27.125:8082/booking',
                 type: 'POST',
                 data : {
-                    "type":options.val(),
-                    "name": $("#textinput1").val(),
-                    "email":$("#textinput2").val(),
-                    "charge":$("#charge1").val()
+
                     },
                     dataType : 'json',
                     crossDomain : true,
@@ -323,7 +331,7 @@ $(document).ready(function() {
     wrappedData.type = "GET";
     $.ajax({
         url: 'http://18.191.27.125:8082/booking',
-        type: 'GET',
+        type: 'POST',
         data : wrappedData,
         success: function (data) {
             $.each(data, function(index, item){
