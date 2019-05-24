@@ -25,7 +25,10 @@ $(document).ready(function() {
                 window.location.href = admin == 1 ? "Adminprofile.html" : "Userprofile.html";
             },
             error: function(XMLHttpRequest, textStatus, errorThrown){
-                alert("Incorrect username(email) or password! Info: "+XMLHttpRequest.responseText);
+                if(XMLHttpRequest.status==500)
+                    alert("Incorrect username(email) or password!");
+                else
+                    alert("Internal server error!");
             }
 
         })
