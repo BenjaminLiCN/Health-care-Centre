@@ -142,11 +142,11 @@ public class UserServiceImpl extends BaseServiceImpl implements UserService {
         } else {
             //查找账号是否存在
             long count = userDao.count((root, query, cb) -> {
-                Path<String> usernamePath = root.get("username");
-                return cb.equal(usernamePath, userRegisterReqDTO.getUsername());
+                Path<String> emailPath = root.get("email");
+                return cb.equal(emailPath, userRegisterReqDTO.getEmail());
             });
             if (count>0){
-                throw new hccException("The username already exists!");
+                throw new hccException("The email already exists!");
             } else {
                 UserDO userDO = userRegisterReqMapper.to(userRegisterReqDTO);
                 userDao.save(userDO);
