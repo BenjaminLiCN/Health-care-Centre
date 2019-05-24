@@ -26,7 +26,7 @@
                   window.location.href = "Login.html";
               },
               error: function (data) {
-                  alert("Some information is duplicated!");
+                  alert("Internal server error!");
               }
           })
   }
