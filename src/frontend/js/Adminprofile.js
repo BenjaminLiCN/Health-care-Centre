@@ -336,7 +336,6 @@ $(document).ready(function() {
         type: 'POST',
         data : JSON.stringify(wrappedData),
         crossDomain : true,
-        contentType: "application/json",
         success: function (data) {
             $.each(data, function(index, item){
                 console.log(item);
