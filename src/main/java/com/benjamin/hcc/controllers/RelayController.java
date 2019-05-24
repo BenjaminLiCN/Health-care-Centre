@@ -34,7 +34,7 @@ public class RelayController {
         service.execute(message);
         return WebUtils.success();
     }
-    @RequestMapping(value = "/book", method = RequestMethod.POST, produces = "application/json")
+    @RequestMapping(value = "/booking", method = RequestMethod.POST, produces = "application/json")
     public String postTo(@RequestBody JSONObject message) {
 
         JSONObject dataJSON = null;
