@@ -12,7 +12,8 @@ $(document).ready(function() {
     $.ajax({
         url: "http://18.191.27.125:8082/booking",
         type: 'POST',
-        data : wrappedData,
+        data : JSON.stringify(wrappedData),
+        contentType: "application/json",
         crossDomain : true,
         success: function (data) {
                 $(".tbody_Podiatrist").empty();
@@ -54,8 +55,8 @@ $(document).ready(function() {
                         $.ajax({
                             url: "http://18.191.27.125:8082/booking",
                             type: 'POST',
-                            data : wrappedData,
-                            dataType : 'json',
+                            data : JSON.stringify(wrappedData),
+                            contentType: "application/json",
                             crossDomain : true,
                             success: function (data) {
                                 $.each(data, function(index, item){
@@ -120,8 +121,8 @@ $(document).ready(function() {
                         $.ajax({
                             url: "http://18.191.27.125:8082/booking",
                             type: 'POST',
-                            data : wrappedData,
-                            dataType : 'json',
+                            data : JSON.stringify(wrappedData),
+                            contentType: "application/json",
                             crossDomain : true,
                             success: function (data) {
                                 $.each(data, function(index, item){
@@ -186,8 +187,8 @@ $(document).ready(function() {
                         $.ajax({
                             url: "http://18.191.27.125:8082/booking",
                             type: 'POST',
-                            data : wrappedData,
-                            dataType: 'json',
+                            data : JSON.stringify(wrappedData),
+                            contentType: "application/json",
                             crossDomain: true,
                             success: function (data) {
                                 $.each(data, function(index, item){
@@ -254,7 +255,7 @@ $(document).ready(function() {
                 $.ajax({
                     url: 'http://18.191.27.125:8082/booking/',
                     type: 'POST',
-                    data : wrappedData,
+                    data : JSON.stringify(wrappedData),
                     dataType : 'json',crossDomain : true,
                     success: function (data) {
                         alert(" Booking successfully");
@@ -277,9 +278,9 @@ $(document).ready(function() {
     $.ajax({
         url: 'http://18.191.27.125:8082/booking',
         type: 'POST',
-        data : wrappedData,
+        data : JSON.stringify(wrappedData),
         crossDomain: true,
-        dataType: 'json',
+        contentType: "application/json",
         success: function (data) {
             $.each(data, function(index, item){
                 var divbooking_history = document.getElementById("booking_history");
@@ -323,8 +324,8 @@ $(document).ready(function() {
             $.ajax({
                 url: "http://18.191.27.125:8082/booking",
                 type: 'POST',
-                data : wrappedData,
-                dataType : 'json',
+                data : JSON.stringify(wrappedData),
+                contentType: "application/json",
                 crossDomain : true,
                 success: function (data) {
                     alert("Cancel Successfully");

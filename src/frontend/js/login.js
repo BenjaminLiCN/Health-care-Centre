@@ -12,6 +12,7 @@ $(document).ready(function() {
             type: 'POST',
             data : payload,
             crossDomain : true,
+            contentType: "application/json",
             success: function (data) {
                 var id = data.id;
                 var admin = data.admin;

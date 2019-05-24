@@ -43,8 +43,8 @@ public class UserController {
         return WebUtils.success();
     }
 
-    @PostMapping("login")
-    public JSONObject login(UserDTO userDTO){
+    @RequestMapping(value = "/login", consumes = "application/json")
+    public JSONObject login(@RequestBody UserDTO userDTO){
         //String token = userService.getTokenByLogin(userDTO);
         JSONObject user = userService.getUserByLogin(userDTO);
         //System.out.println(token);
