@@ -24,8 +24,8 @@ $(document).ready(function() {
                 storage.name = name;
                 window.location.href = admin == 1 ? "Adminprofile.html" : "Userprofile.html";
             },
-            error: function(data){
-                alert("Incorrect username(email) or password!");
+            error: function(XmlHttpResponse data){
+                alert("Incorrect username(email) or password! Info: "+data);
             }
 
         })
