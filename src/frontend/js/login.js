@@ -25,10 +25,20 @@ $(document).ready(function() {
             },
             error: function(XMLHttpRequest, textStatus, errorThrown){
                 if(XMLHttpRequest.status==500)
-                    alert("Incorrect username(email) or password!");
-                else
-                    alert("Internal server error!");
+                    alert("Internal server error! 500");
+                  else if(XMLHttpRequest.status==200){
+                    var id = data.id;
+                    var admin = data.admin;
+                    var name = data.name;
+                    var storage=window.localStorage;
+                    storage.id = id;
+                    storage.admin = admin;
+                    storage.name = name;
+                    window.location.href = admin == 1 ? "Adminprofile.html" : "Userprofile.html";
+                  }else{
+                    alert("Internal server error! else");
                     console.log(XMLHttpRequest.responseText);
+                  }
             }
 
         })
