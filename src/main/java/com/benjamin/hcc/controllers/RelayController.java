@@ -70,6 +70,7 @@ public class RelayController {
             }
             //发送Post请求
             conn.setDoOutput(true);
+            conn.connect();
             DataOutputStream wr = new DataOutputStream(conn.getOutputStream());
             wr.writeBytes(urlParameters);
             wr.flush();
