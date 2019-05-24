@@ -8,6 +8,7 @@ $(document).ready(function() {
     wrappedData.data = "";
     wrappedData.url = "http://18.191.27.125:8081/booking/professional/";
     wrappedData.type = "POST";
+    wrappedData.crossDomain = true;
     $.ajax({
         url: "http://18.191.27.125:8082/booking",
         type: 'POST',
@@ -50,7 +51,7 @@ $(document).ready(function() {
                         wrappedData.data = "";
                         wrappedData.url = finalUrl;
                         wrappedData.type = "GET";
-
+                        wrappedData.crossDomain = true;
                         $.ajax({
                             url: "http://18.191.27.125:8082/booking",
                             type: 'POST',
@@ -116,6 +117,7 @@ $(document).ready(function() {
                         wrappedData.data = "";
                         wrappedData.url = finalUrl;
                         wrappedData.type = "GET";
+                        wrappedData.crossDomain = true;
                         $.ajax({
                             url: "http://18.191.27.125:8082/booking",
                             type: 'POST',
@@ -181,7 +183,7 @@ $(document).ready(function() {
                         wrappedData.data = "";
                         wrappedData.url = finalUrl;
                         wrappedData.type = "GET";
-
+                        wrappedData.crossDomain = true;
                         $.ajax({
                             url: "http://18.191.27.125:8082/booking",
                             type: 'POST',
@@ -244,7 +246,8 @@ $(document).ready(function() {
                 "url" : "http://18.191.27.125:8081/booking",
                 "type" : "POST",
                 "data" : booking,
-                "dataType" : "json"
+                "dataType" : "json",
+                "crossDomain": true
             }
 
             $(document).on("click", ".submit_booking", function (){
@@ -271,6 +274,7 @@ $(document).ready(function() {
     wrappedData.data = "";
     wrappedData.url = "http://18.191.27.125:8081/booking/user/1";
     wrappedData.type = "GET";
+    wrappedData.crossDomain = true;
     $.ajax({
         url: 'http://18.191.27.125:8082/booking',
         type: 'POST',
@@ -316,7 +320,7 @@ $(document).ready(function() {
             wrappedData.data = "";
             wrappedData.url = finalbookingUrl;
             wrappedData.type = "DELETE"
-
+            wrappedData.crossDomain = true;
             $.ajax({
                 url: "http://18.191.27.125:8082/booking",
                 type: 'POST',
