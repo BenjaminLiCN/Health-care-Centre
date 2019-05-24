@@ -18,8 +18,6 @@ $(document).ready(function() {
                 var admin = data.admin;
                 var name = data.name;
                 var storage=window.localStorage;
-                                alert(name+" "+id)
-
                 storage.id = id;
                 storage.admin = admin;
                 storage.name = name;
