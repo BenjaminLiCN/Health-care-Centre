@@ -2,10 +2,10 @@ $(document).ready(function() {
     var wrappedData = {};
     wrappedData.dataType = "json";
     wrappedData.data = "";
-    wrappedData.url = "http://18.191.27.125:8081/booking/professional/";
+    wrappedData.url = "http://localhost:8081/booking/professional/";
     wrappedData.type = "GET";
     $.ajax({
-        url: "http://18.191.27.125:8082/booking/",
+        url: "http://localhost:8082/booking/",
         type: 'POST',
         data : wrappedData,
         success: function (data) {
@@ -37,7 +37,7 @@ $(document).ready(function() {
                     );
 
                     var professional_id=item.id
-                    var baseUrl = 'http://18.191.27.125:8081/booking/professional/availabletime/';
+                    var baseUrl = 'http://localhost:8081/booking/professional/availabletime/';
                     var a = item.id;
                     var finalUrl = baseUrl + a;
                     var divB = $("tbody[value='"+item.id+"']")
@@ -48,9 +48,9 @@ $(document).ready(function() {
                     wrappedData.type = "GET";
 
                     $.ajax({
-                        url: "http://18.191.27.125:8082/booking",
+                        url: "http://localhost:8082/booking",
                         type: 'POST',
-                        data: wrappedData,
+                        data : wrappedData,
                         success: function (data) {
                             $.each(data, function(index, item){
                                 $(divB).append(
@@ -102,7 +102,7 @@ $(document).ready(function() {
                     );
 
                     var professional_id=item.id
-                    var baseUrl = 'http://18.191.27.125:8081/booking/professional/availabletime/';
+                    var baseUrl = 'http://localhost:8081/booking/professional/availabletime/';
                     var a = item.id;
                     var finalUrl = baseUrl + a;
                     var divnaturopath_schedule = $("tbody[value='"+item.id+"']")
@@ -113,9 +113,9 @@ $(document).ready(function() {
                     wrappedData.type = "GET";
 
                     $.ajax({
-                        url: "18.191.27.125:8082/booking",
+                        url: "http://localhost:8082/booking",
                         type: 'POST',
-                        data : '',
+                        data : wrappedData,
                         success: function (data) {
                             $.each(data, function(index, item){
                                 $(divnaturopath_schedule).append(
@@ -166,7 +166,7 @@ $(document).ready(function() {
                     );
 
                     var professional_id=item.id
-                    var baseUrl = 'http://18.191.27.125:8081/booking/professional/availabletime/';
+                    var baseUrl = 'http://localhost:8081/booking/professional/availabletime/';
                     var a = item.id;
                     var finalUrl = baseUrl + a;
                     var divchiropractor_schedule = $("tbody[value='"+item.id+"']");
@@ -177,7 +177,7 @@ $(document).ready(function() {
                     wrappedData.type = "GET";
 
                     $.ajax({
-                        url: "http://18.191.27.125:8082/booking",
+                        url: "http://localhost:8082/booking",
                         type: 'POST',
                         data : wrappedData,
                         success: function (data) {
@@ -234,15 +234,14 @@ $(document).ready(function() {
                 var wrappedData = {};
                 wrappedData.dataType = "json";
                 wrappedData.data = booking;
-                wrappedData.url = "http://18.191.27.125:8081/booking";
+                wrappedData.url = "http://localhost:8081/booking";
                 wrappedData.type = "POST";
-                "http://18.191.27.125:8081/booking/professional/"
+                "http://localhost:8081/booking/professional/"
                 $.ajax({
-                    url: 'http://18.191.27.125:8082/booking',
+                    url: 'http://localhost:8082/booking',
                     type: 'POST',
                     data : wrappedData,
                     dataType : 'json',
-                    crossDomain : true,
                     success: function (data) {
                         alert(" Booking successfully");
                         window.location.reload();
@@ -261,7 +260,7 @@ $(document).ready(function() {
 
             var booking_id=$(this).val();
             console.log(booking_id.val());
-            var bookingUrl = 'http://18.191.27.125:8081/booking/';
+            var bookingUrl = 'http://localhost:8081/booking/';
             var finalbookingUrl = bookingUrl + booking_id;
 
 
@@ -272,11 +271,10 @@ $(document).ready(function() {
             wrappedData.type = "DELETE";
 
             $.ajax({
-                url: "http://18.191.27.125:8082/booking/",
+                url: "http://localhost:8082/booking/",
                 type: 'POST',
                 data : wrappedData,
                 dataType : 'json',
-                crossDomain : true,
                 success: function (data) {
                     alert("Cancel Successfully");
                     window.location.reload();
@@ -291,7 +289,7 @@ $(document).ready(function() {
     })
 
     $(function () {
-        $(document).on("click", "#singlebutton", function (){
+        $(document).on("click", "#addProfessional", function (){
             var options = $("#choose_type option:selected");
             var pro = {
                 "charge":$("#charge1").val(),
@@ -303,22 +301,19 @@ $(document).ready(function() {
             var wrappedData = {};
             wrappedData.dataType = "json";
             wrappedData.data = pro;
-            wrappedData.url = "http://18.191.27.125:8081/booking/professional";
+            wrappedData.url = "http://localhost:8081/booking/professional";
             wrappedData.type = "POST";
             $.ajax({
-                url: 'http://18.191.27.125:8082/booking',
+                url: 'http://localhost:8082/booking',
                 type: 'POST',
-                data : {
+                data : wrappedData,
+                dataType : 'json',
+                success: function (data) {
+                    alert(" Add successfully");
+                    window.location.reload();
+                }
 
-                    },
-                    dataType : 'json',
-                    crossDomain : true,
-                    success: function (data) {
-                        alert(" Add successfully");
-                        window.location.reload();
-                    }
-
-                })
+            })
         })
 
 
@@ -327,10 +322,10 @@ $(document).ready(function() {
     var wrappedData = {};
     wrappedData.dataType = "json";
     wrappedData.data = "";
-    wrappedData.url = "http://18.191.27.125:8081/booking";
+    wrappedData.url = "http://localhost:8081/booking";
     wrappedData.type = "GET";
     $.ajax({
-        url: 'http://18.191.27.125:8082/booking',
+        url: 'http://localhost:8082/booking',
         type: 'POST',
         data : wrappedData,
         success: function (data) {
