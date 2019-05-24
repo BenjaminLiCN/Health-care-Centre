@@ -25,7 +25,7 @@ $(document).ready(function() {
                 window.location.href = admin == 1 ? "Adminprofile.html" : "Userprofile.html";
             },
             error: function(data){
-                console.log(data);
+                alert("Incorrect username(email) or password!");
             }
 
         })
