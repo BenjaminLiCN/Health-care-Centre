@@ -4,10 +4,12 @@ $(document).ready(function() {
     wrappedData.data = "";
     wrappedData.url = "http://18.191.27.125:8081/booking/professional/";
     wrappedData.type = "GET";
+    wrappedData.crossDomain = true;
     $.ajax({
         url: "http://18.191.27.125:8082/booking/",
         type: 'POST',
         data : wrappedData,
+        crossDomain : true,
         success: function (data) {
             $(".tbody_Podiatrist").empty();
             $(".tbody_naturopath").empty();
@@ -46,11 +48,12 @@ $(document).ready(function() {
                     wrappedData.data = "";
                     wrappedData.url = finalUrl;
                     wrappedData.type = "GET";
-
+                    wrappedData.crossDomain = true;
                     $.ajax({
                         url: "http://18.191.27.125:8082/booking",
                         type: 'POST',
                         data : wrappedData,
+                        crossDomain : true,
                         success: function (data) {
                             $.each(data, function(index, item){
                                 $(divB).append(
@@ -111,11 +114,12 @@ $(document).ready(function() {
                     wrappedData.data = "";
                     wrappedData.url = finalUrl;
                     wrappedData.type = "GET";
-
+                    wrappedData.crossDomain = true;
                     $.ajax({
                         url: "http://18.191.27.125:8082/booking",
                         type: 'POST',
                         data : wrappedData,
+                        crossDomain : true,
                         success: function (data) {
                             $.each(data, function(index, item){
                                 $(divnaturopath_schedule).append(
@@ -175,7 +179,7 @@ $(document).ready(function() {
                     wrappedData.data = "";
                     wrappedData.url = finalUrl;
                     wrappedData.type = "GET";
-
+                    wrappedData.crossDomain = true;
                     $.ajax({
                         url: "http://18.191.27.125:8082/booking",
                         type: 'POST',
@@ -236,7 +240,8 @@ $(document).ready(function() {
                 wrappedData.data = booking;
                 wrappedData.url = "http://18.191.27.125:8081/booking";
                 wrappedData.type = "POST";
-                "http://18.191.27.125:8081/booking/professional/"
+                wrappedData.crossDomain = true;
+
                 $.ajax({
                     url: 'http://18.191.27.125:8082/booking',
                     type: 'POST',
@@ -269,7 +274,7 @@ $(document).ready(function() {
             wrappedData.data = "";
             wrappedData.url = finalbookingUrl;
             wrappedData.type = "DELETE";
-
+            wrappedData.crossDomain = true;
             $.ajax({
                 url: "http://18.191.27.125:8082/booking/",
                 type: 'POST',
@@ -303,6 +308,7 @@ $(document).ready(function() {
             wrappedData.data = pro;
             wrappedData.url = "http://18.191.27.125:8081/booking/professional";
             wrappedData.type = "POST";
+            wrappedData.crossDomain = true;
             $.ajax({
                 url: 'http://18.191.27.125:8082/booking',
                 type: 'POST',
@@ -324,10 +330,12 @@ $(document).ready(function() {
     wrappedData.data = "";
     wrappedData.url = "http://18.191.27.125:8081/booking";
     wrappedData.type = "GET";
+    wrappedData.crossDomain = true;
     $.ajax({
         url: 'http://18.191.27.125:8082/booking',
         type: 'POST',
         data : wrappedData,
+        crossDomain : true,
         success: function (data) {
             $.each(data, function(index, item){
                 console.log(item);
