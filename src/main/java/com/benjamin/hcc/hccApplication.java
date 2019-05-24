@@ -20,15 +20,15 @@ public class hccApplication implements CommandLineRunner{
 
 		SpringApplication.run(hccApplication.class, args);
 	}
-//	@Bean
-//	public WebMvcConfigurer webMvcConfigurer() {
-//		return new WebMvcConfigurerAdapter() {
-//			@Override
-//			public void addCorsMappings(CorsRegistry registry) {
-//				registry.addMapping("/**").allowedOrigins("*");
-//			}
-//		};
-//	}
+	@Bean
+	public WebMvcConfigurer webMvcConfigurer() {
+		return new WebMvcConfigurerAdapter() {
+			@Override
+			public void addCorsMappings(CorsRegistry registry) {
+				registry.addMapping("/**").allowedOrigins("*");
+			}
+		};
+	}
 	@Autowired
 	UserService service;
 
