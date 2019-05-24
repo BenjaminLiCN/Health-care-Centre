@@ -14,7 +14,7 @@ $(document).ready(function() {
         type: 'POST',
         data : wrappedData,
         dataType : 'json',
-        crossDomain : 'true',
+        crossDomain : true,
         success: function (data) {
                 $(".tbody_Podiatrist").empty();
                 $(".tbody_naturopath").empty();
