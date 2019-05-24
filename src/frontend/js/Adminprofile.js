@@ -8,7 +8,7 @@ $(document).ready(function() {
     $.ajax({
         url: "http://18.191.27.125:8082/booking/",
         type: 'POST',
-        data : wrappedData,
+        data : JSON.stringify(wrappedData),
         crossDomain : true,
         success: function (data) {
             $(".tbody_Podiatrist").empty();
@@ -52,7 +52,7 @@ $(document).ready(function() {
                     $.ajax({
                         url: "http://18.191.27.125:8082/booking",
                         type: 'POST',
-                        data : wrappedData,
+                        data : JSON.stringify(wrappedData),
                         crossDomain : true,
                         success: function (data) {
                             $.each(data, function(index, item){
@@ -118,7 +118,7 @@ $(document).ready(function() {
                     $.ajax({
                         url: "http://18.191.27.125:8082/booking",
                         type: 'POST',
-                        data : wrappedData,
+                        data : JSON.stringify(wrappedData),
                         crossDomain : true,
                         success: function (data) {
                             $.each(data, function(index, item){
@@ -183,7 +183,7 @@ $(document).ready(function() {
                     $.ajax({
                         url: "http://18.191.27.125:8082/booking",
                         type: 'POST',
-                        data : wrappedData,
+                        data : JSON.stringify(wrappedData),
                         success: function (data) {
                             $.each(data, function(index, item){
                                 $(divchiropractor_schedule).append(
@@ -245,7 +245,7 @@ $(document).ready(function() {
                 $.ajax({
                     url: 'http://18.191.27.125:8082/booking',
                     type: 'POST',
-                    data : wrappedData,
+                    data : JSON.stringify(wrappedData),
                     crossDomain : true,
                     success: function (data) {
                         alert(" Booking successfully");
@@ -278,7 +278,7 @@ $(document).ready(function() {
             $.ajax({
                 url: "http://18.191.27.125:8082/booking/",
                 type: 'POST',
-                data : wrappedData,
+                data : JSON.stringify(wrappedData),
                 crossDomain : true,
                 success: function (data) {
                     alert("Cancel Successfully");
@@ -312,7 +312,7 @@ $(document).ready(function() {
             $.ajax({
                 url: 'http://18.191.27.125:8082/booking',
                 type: 'POST',
-                data : wrappedData,
+                data : JSON.stringify(wrappedData),
                 crossDomain : true,
                 success: function (data) {
                     alert(" Add successfully");
@@ -334,7 +334,7 @@ $(document).ready(function() {
     $.ajax({
         url: 'http://18.191.27.125:8082/booking',
         type: 'POST',
-        data : wrappedData,
+        data : JSON.stringify(wrappedData),
         crossDomain : true,
         contentType: "application/json",
         success: function (data) {
