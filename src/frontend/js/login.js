@@ -10,7 +10,7 @@ $(document).ready(function() {
         $.ajax({
             url: "http://18.191.27.125:8082/user/login",
             type: 'POST',
-            data : payload,
+            data : JSON.stringify(payload),
             crossDomain : true,
             contentType: "application/json",
             success: function (data) {
