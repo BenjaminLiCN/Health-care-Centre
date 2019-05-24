@@ -25,8 +25,13 @@
                   console.log(data);
                   window.location.href = "Login.html";
               },
-              error: function (data) {
-                  alert("Internal server error!");
+              error: function (XMLHttpRequest) {
+
+                  if(XMLHttpRequest.status==500)
+                      alert("Internal server error! 500");
+                  else
+                      alert("Internal server error! else");
+                      console.log(XMLHttpRequest.responseText);
               }
           })
   }
