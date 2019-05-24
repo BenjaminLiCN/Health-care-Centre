@@ -48,6 +48,7 @@ public class UserController {
         //String token = userService.getTokenByLogin(userDTO);
         JSONObject user = userService.getUserByLogin(userDTO);
         //System.out.println(token);
+        System.out.println(user);
         return user;
     }
     @PostMapping("get")
