@@ -246,7 +246,7 @@ $(document).ready(function() {
                     url: 'http://18.191.27.125:8082/booking',
                     type: 'POST',
                     data : wrappedData,
-                    dataType : 'json',crossDomain : true,
+                    crossDomain : true,
                     success: function (data) {
                         alert(" Booking successfully");
                         window.location.reload();
@@ -279,7 +279,7 @@ $(document).ready(function() {
                 url: "http://18.191.27.125:8082/booking/",
                 type: 'POST',
                 data : wrappedData,
-                dataType : 'json',crossDomain : true,
+                crossDomain : true,
                 success: function (data) {
                     alert("Cancel Successfully");
                     window.location.reload();
@@ -313,7 +313,7 @@ $(document).ready(function() {
                 url: 'http://18.191.27.125:8082/booking',
                 type: 'POST',
                 data : wrappedData,
-                dataType : 'json',crossDomain : true,
+                crossDomain : true,
                 success: function (data) {
                     alert(" Add successfully");
                     window.location.reload();
