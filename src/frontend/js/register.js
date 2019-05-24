@@ -28,10 +28,14 @@
               error: function (XMLHttpRequest) {
 
                   if(XMLHttpRequest.status==500)
-                      alert("Internal server error! 500");
-                  else
-                      alert("Internal server error! else");
-                      console.log(XMLHttpRequest.responseText);
+                    alert("Internal server error! 500");
+                  else if(XMLHttpRequest.status==500){
+                    window.location.href = "Login.html";
+                  }else{
+                    alert("Internal server error! else");
+                    console.log(XMLHttpRequest.responseText);
+                  }
+
               }
           })
   }
