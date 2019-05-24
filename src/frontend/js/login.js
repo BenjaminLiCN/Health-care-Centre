@@ -12,7 +12,6 @@ $(document).ready(function() {
             type: 'POST',
             data : payload,
             crossDomain : true,
-            dataType : 'json',
             success: function (data) {
                 var id = data.id;
                 var admin = data.admin;
@@ -27,14 +26,7 @@ $(document).ready(function() {
                 if(XMLHttpRequest.status==500)
                     alert("Internal server error! 500");
                   else if(XMLHttpRequest.status==200){
-                    var id = data.id;
-                    var admin = data.admin;
-                    var name = data.name;
-                    var storage=window.localStorage;
-                    storage.id = id;
-                    storage.admin = admin;
-                    storage.name = name;
-                    window.location.href = admin == 1 ? "Adminprofile.html" : "Userprofile.html";
+                    alert("200 but not data!")
                   }else{
                     alert("Internal server error! else");
                     console.log(XMLHttpRequest.responseText);
