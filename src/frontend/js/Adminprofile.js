@@ -7,16 +7,16 @@ $(document).ready(function() {
     wrappedData.crossDomain = true;
     $.ajax({
         url: wrappedData.url,
-                            type: wrappedData.type,
-                            data : wrappedData.data,
-        contentType: "application/json",
+        type: wrappedData.type,
+        data : wrappedData.data,
+        dataType: "json",
         crossDomain : true,
         success: function (data) {
             $(".tbody_Podiatrist").empty();
             $(".tbody_naturopath").empty();
             $(".tbody_chiropractor").empty();
             $.each(data, function(index, item){
-                if(item.type == 'Podiatrist'){
+                if(item.type == 'podiatrist'){
                     var divA = document.getElementById("tbody_Podiatrist");
                     $(divA).append(
                         "<div class='table_content_style'>"
@@ -54,7 +54,7 @@ $(document).ready(function() {
                         url: wrappedData.url,
                             type: wrappedData.type,
                             data : wrappedData.data,
-                        contentType: "application/json",
+                            dataType: "json",
                         crossDomain : true,
                         success: function (data) {
                             $.each(data, function(index, item){
@@ -85,7 +85,7 @@ $(document).ready(function() {
                     })
                 }
 
-                if(item.type == 'Naturopath'){
+                if(item.type == 'naturopath'){
                     var divnaturopath = document.getElementById("tbody_naturopath");
                     $(divnaturopath).append(
                         "<div class='table_content_style'>"
@@ -122,7 +122,7 @@ $(document).ready(function() {
                             type: wrappedData.type,
                             data : wrappedData.data,
                         crossDomain : true,
-                        contentType: "application/json",
+                        dataType: "json",
                         success: function (data) {
                             $.each(data, function(index, item){
                                 $(divnaturopath_schedule).append(
@@ -151,7 +151,7 @@ $(document).ready(function() {
                     })
                 }
 
-                if(item.type == 'Chiropractor'){
+                if(item.type == 'chiropractor'){
                     var divchiropractor = document.getElementById("tbody_chiropractor");
                     $(divchiropractor).append(
                         "<div class='table_content_style'>"
@@ -187,7 +187,7 @@ $(document).ready(function() {
                         url: wrappedData.url,
                             type: wrappedData.type,
                             data : wrappedData.data,
-                        contentType: "application/json",
+                            dataType: "json",
                         success: function (data) {
                             $.each(data, function(index, item){
                                 $(divchiropractor_schedule).append(
@@ -250,7 +250,7 @@ $(document).ready(function() {
                     url: wrappedData.url,
                             type: wrappedData.type,
                             data : wrappedData.data,
-                    contentType: "application/json",
+                            dataType: "json",
                     crossDomain : true,
                     success: function (data) {
                         alert(" Booking successfully");
@@ -306,24 +306,38 @@ $(document).ready(function() {
                 "charge":$("#charge1").val(),
                 "email":$("#textinput2").val(),
                 "name": $("#textinput1").val(),
-                "number":"",
-                "type":options.val()
+                "number":"1111",
+                "type":options.val().toLowerCase()    
             }
+            console.log(pro);
             var wrappedData = {};
             wrappedData.dataType = "json";
-            wrappedData.data = pro;
+            wrappedData.data = {
+                charge:$("#charge1").val(),
+                email:$("#textinput2").val(),
+                name: $("#textinput1").val(),
+                number:"1111",
+                type:options.val().toLowerCase()
+            };
             wrappedData.url = "http://18.191.27.125:8081/booking/professional";
             wrappedData.type = "POST";
             wrappedData.crossDomain = true;
             $.ajax({
                 url: wrappedData.url,
-                            type: wrappedData.type,
-                            data : wrappedData.data,
-                contentType: "application/json",
+                type: wrappedData.type,
+                data : {
+                    charge:$("#charge1").val(),
+                    email:$("#textinput2").val(),
+                    name: $("#textinput1").val(),
+                    number:"1111",
+                    type:options.val().toLowerCase()
+                },
+                dataType: "json",
                 crossDomain : true,
                 success: function (data) {
+                    console.log(data)
                     alert(" Add successfully");
-                    window.location.reload();
+                    //window.location.reload();
                 }
 
             })
@@ -340,11 +354,12 @@ $(document).ready(function() {
     wrappedData.crossDomain = true;
     $.ajax({
         url: wrappedData.url,
-                            type: wrappedData.type,
-                            data : wrappedData.data,
-        contentType: "application/json",
+        type: wrappedData.type,
+        data : wrappedData.data,
+        dataType: "json",
         crossDomain : true,
         success: function (data) {
+            console.log(data)
             $.each(data, function(index, item){
                 console.log(item);
                 var divbooking_history = document.getElementById("view_booking");

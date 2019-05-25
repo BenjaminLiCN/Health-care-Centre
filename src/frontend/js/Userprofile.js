@@ -4,16 +4,19 @@ $(document).ready(function() {
             $("#name"+i).html(window.localStorage.name);
     }
     var wrappedData = {};
-    wrappedData.dataType = "json";
+    //wrappedData.dataType = "json";
     wrappedData.data = "";
     wrappedData.url = "http://18.191.27.125:8081/booking/professional/";
     wrappedData.type = "POST";
     wrappedData.crossDomain = true;
-    $.ajax({
+    $.ajax({/*
+        url: "http://18.191.27.125:8082/booking",
+        type: "POST",
+        data : wrappedData,*/
         url: wrappedData.url,
         type: wrappedData.type,
         data : "",
-        contentType: "application/json",
+        dataType: "json",
         crossDomain : true,
         success: function (data) {
             console.log(data);
@@ -54,7 +57,7 @@ $(document).ready(function() {
                             url: wrappedData.url,
                             type: wrappedData.type,
                             data : wrappedData.data,
-                            contentType: "application/json",
+                            dataType: "json",
                             crossDomain : true,
                             success: function (data) {
                                 $.each(data, function(index, item){
@@ -120,7 +123,7 @@ $(document).ready(function() {
                             url: wrappedData.url,
                             type: wrappedData.type,
                             data : wrappedData.data,
-                            contentType: "application/json",
+                            dataType: "json",
                             crossDomain : true,
                             success: function (data) {
                                 $.each(data, function(index, item){
@@ -186,7 +189,7 @@ $(document).ready(function() {
                             url: wrappedData.url,
                             type: wrappedData.type,
                             data : wrappedData.data,
-                            contentType: "application/json",
+                            dataType: "json",
                             crossDomain: true,
                             success: function (data) {
                                 $.each(data, function(index, item){
@@ -278,7 +281,7 @@ $(document).ready(function() {
         type: wrappedData.type,
         data : wrappedData.data,
         crossDomain: true,
-        contentType: "application/json",
+        dataType: "json",
         success: function (data) {
             $.each(data, function(index, item){
                 var divbooking_history = document.getElementById("booking_history");
@@ -323,7 +326,7 @@ $(document).ready(function() {
                 url: wrappedData.url,
                             type: wrappedData.type,
                             data : wrappedData.data,
-                contentType: "application/json",
+                            dataType: "json",
                 crossDomain : true,
                 success: function (data) {
                     alert("Cancel Successfully");
