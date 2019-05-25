@@ -42,7 +42,7 @@ public class BookingDO{
 
 	// e.g. 2019-4-10
     @Column(name = "schedule_date")
-    private Date scheduleDate;
+    private String scheduleDate;
 
     // 12:15  == 12.25
     @Column(name = "schedule_start")
@@ -88,11 +88,11 @@ public class BookingDO{
 		this.userDO = userDO;
 	}
 
-	public Date getScheduleDate() {
+	public String getScheduleDate() {
 		return scheduleDate;
 	}
 
-	public void setScheduleDate(Date scheduleDate) {
+	public void setScheduleDate(String scheduleDate) {
 		this.scheduleDate = scheduleDate;
 	}
 
