@@ -337,7 +337,7 @@ $(document).ready(function() {
                 success: function (data) {
                     console.log(data)
                     alert(" Add successfully");
-                    //window.location.reload();
+                    window.location.reload();
                 }
 
             })
