@@ -10,17 +10,15 @@ $(document).ready(function() {
     wrappedData.type = "POST";
     wrappedData.crossDomain = true;
     $.ajax({
-        url: "http://18.191.27.125:8082/booking",
-        type: 'POST',
-        data : JSON.stringify(wrappedData),
+        url: wrappedData.url,
+        type: wrappedData.type,
+        data : "",
         contentType: "application/json",
         crossDomain : true,
         success: function (data) {
-                $(".tbody_Podiatrist").empty();
-                $(".tbody_naturopath").empty();
-                $(".tbody_chiropractor").empty();
+            console.log(data);
                 $.each(data, function(index, item){
-                    if(item.type == 'Podiatrist'){
+                    if(item.type == 'podiatrist'){
                         var divA = document.getElementById("tbody_Podiatrist");
                         $(divA).append(
                             "<div class='table_content_style'>"
@@ -53,9 +51,9 @@ $(document).ready(function() {
                         wrappedData.type = "GET";
                         wrappedData.crossDomain = true;
                         $.ajax({
-                            url: "http://18.191.27.125:8082/booking",
-                            type: 'POST',
-                            data : JSON.stringify(wrappedData),
+                            url: wrappedData.url,
+                            type: wrappedData.type,
+                            data : wrappedData.data,
                             contentType: "application/json",
                             crossDomain : true,
                             success: function (data) {
@@ -87,7 +85,7 @@ $(document).ready(function() {
                         })
                     }
 
-                    if(item.type == 'Naturopath'){
+                    if(item.type == 'naturopath'){
                         var divnaturopath = document.getElementById("tbody_naturopath");
                         $(divnaturopath).append(
                             "<div class='table_content_style'>"
@@ -119,9 +117,9 @@ $(document).ready(function() {
                         wrappedData.type = "GET";
                         wrappedData.crossDomain = true;
                         $.ajax({
-                            url: "http://18.191.27.125:8082/booking",
-                            type: 'POST',
-                            data : JSON.stringify(wrappedData),
+                            url: wrappedData.url,
+                            type: wrappedData.type,
+                            data : wrappedData.data,
                             contentType: "application/json",
                             crossDomain : true,
                             success: function (data) {
@@ -153,7 +151,7 @@ $(document).ready(function() {
                         })
                     }
 
-                    if(item.type == 'Chiropractor'){
+                    if(item.type == 'chiropractor'){
                         var divchiropractor = document.getElementById("tbody_chiropractor");
                         $(divchiropractor).append(
                             "<div class='table_content_style'>"
@@ -185,9 +183,9 @@ $(document).ready(function() {
                         wrappedData.type = "GET";
                         wrappedData.crossDomain = true;
                         $.ajax({
-                            url: "http://18.191.27.125:8082/booking",
-                            type: 'POST',
-                            data : JSON.stringify(wrappedData),
+                            url: wrappedData.url,
+                            type: wrappedData.type,
+                            data : wrappedData.data,
                             contentType: "application/json",
                             crossDomain: true,
                             success: function (data) {
@@ -253,9 +251,9 @@ $(document).ready(function() {
             $(document).on("click", ".submit_booking", function (){
                 console.log(JSON.stringify(wrappedData));
                 $.ajax({
-                    url: 'http://18.191.27.125:8082/booking/',
-                    type: 'POST',
-                    data : JSON.stringify(wrappedData),
+                    url: wrappedData.url,
+                            type: wrappedData.type,
+                            data : wrappedData.data,
                     dataType : 'json',crossDomain : true,
                     success: function (data) {
                         alert(" Booking successfully");
@@ -276,9 +274,9 @@ $(document).ready(function() {
     wrappedData.type = "GET";
     wrappedData.crossDomain = true;
     $.ajax({
-        url: 'http://18.191.27.125:8082/booking',
-        type: 'POST',
-        data : JSON.stringify(wrappedData),
+        url: wrappedData.url,
+        type: wrappedData.type,
+        data : wrappedData.data,
         crossDomain: true,
         contentType: "application/json",
         success: function (data) {
@@ -322,9 +320,9 @@ $(document).ready(function() {
             wrappedData.type = "DELETE"
             wrappedData.crossDomain = true;
             $.ajax({
-                url: "http://18.191.27.125:8082/booking",
-                type: 'POST',
-                data : JSON.stringify(wrappedData),
+                url: wrappedData.url,
+                            type: wrappedData.type,
+                            data : wrappedData.data,
                 contentType: "application/json",
                 crossDomain : true,
                 success: function (data) {

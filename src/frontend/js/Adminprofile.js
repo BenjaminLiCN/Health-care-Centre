@@ -6,9 +6,9 @@ $(document).ready(function() {
     wrappedData.type = "GET";
     wrappedData.crossDomain = true;
     $.ajax({
-        url: "http://18.191.27.125:8082/booking/",
-        type: 'POST',
-        data : JSON.stringify(wrappedData),
+        url: wrappedData.url,
+                            type: wrappedData.type,
+                            data : wrappedData.data,
         contentType: "application/json",
         crossDomain : true,
         success: function (data) {
@@ -51,9 +51,9 @@ $(document).ready(function() {
                     wrappedData.type = "GET";
                     wrappedData.crossDomain = true;
                     $.ajax({
-                        url: "http://18.191.27.125:8082/booking",
-                        type: 'POST',
-                        data : JSON.stringify(wrappedData),
+                        url: wrappedData.url,
+                            type: wrappedData.type,
+                            data : wrappedData.data,
                         contentType: "application/json",
                         crossDomain : true,
                         success: function (data) {
@@ -118,9 +118,9 @@ $(document).ready(function() {
                     wrappedData.type = "GET";
                     wrappedData.crossDomain = true;
                     $.ajax({
-                        url: "http://18.191.27.125:8082/booking",
-                        type: 'POST',
-                        data : JSON.stringify(wrappedData),
+                        url: wrappedData.url,
+                            type: wrappedData.type,
+                            data : wrappedData.data,
                         crossDomain : true,
                         contentType: "application/json",
                         success: function (data) {
@@ -184,9 +184,9 @@ $(document).ready(function() {
                     wrappedData.type = "GET";
                     wrappedData.crossDomain = true;
                     $.ajax({
-                        url: "http://18.191.27.125:8082/booking",
-                        type: 'POST',
-                        data : JSON.stringify(wrappedData),
+                        url: wrappedData.url,
+                            type: wrappedData.type,
+                            data : wrappedData.data,
                         contentType: "application/json",
                         success: function (data) {
                             $.each(data, function(index, item){
@@ -247,9 +247,9 @@ $(document).ready(function() {
                 wrappedData.crossDomain = true;
 
                 $.ajax({
-                    url: 'http://18.191.27.125:8082/booking',
-                    type: 'POST',
-                    data : JSON.stringify(wrappedData),
+                    url: wrappedData.url,
+                            type: wrappedData.type,
+                            data : wrappedData.data,
                     contentType: "application/json",
                     crossDomain : true,
                     success: function (data) {
@@ -281,9 +281,9 @@ $(document).ready(function() {
             wrappedData.type = "DELETE";
             wrappedData.crossDomain = true;
             $.ajax({
-                url: "http://18.191.27.125:8082/booking/",
-                type: 'POST',
-                contentType: "application/json",
+                url: wrappedData.url,
+                            type: wrappedData.type,
+                            data : wrappedData.data,
                 data : JSON.stringify(wrappedData),
                 crossDomain : true,
                 success: function (data) {
@@ -316,9 +316,9 @@ $(document).ready(function() {
             wrappedData.type = "POST";
             wrappedData.crossDomain = true;
             $.ajax({
-                url: 'http://18.191.27.125:8082/booking',
-                type: 'POST',
-                data : JSON.stringify(wrappedData),
+                url: wrappedData.url,
+                            type: wrappedData.type,
+                            data : wrappedData.data,
                 contentType: "application/json",
                 crossDomain : true,
                 success: function (data) {
@@ -339,9 +339,9 @@ $(document).ready(function() {
     wrappedData.type = "GET";
     wrappedData.crossDomain = true;
     $.ajax({
-        url: 'http://18.191.27.125:8082/booking',
-        type: 'POST',
-        data : JSON.stringify(wrappedData),
+        url: wrappedData.url,
+                            type: wrappedData.type,
+                            data : wrappedData.data,
         contentType: "application/json",
         crossDomain : true,
         success: function (data) {
