@@ -242,7 +242,6 @@ $(document).ready(function() {
                 scheduleEnd:periodEnd,
                 description: $(".book_message").val()
             }
-            console.log(booking)
             var wrappedData = {
                 "url" : "http://18.191.27.125:8081/booking",
                 "type" : "POST",
@@ -252,11 +251,11 @@ $(document).ready(function() {
             }
 
             $(document).on("click", ".submit_booking", function (){
-                console.log(JSON.stringify(wrappedData));
+                console.log(booking)
                 $.ajax({
                     url: wrappedData.url,
                             type: wrappedData.type,
-                            data : wrappedData.data,
+                            data : booking,
                     dataType : 'json',crossDomain : true,
                     success: function (data) {
                         alert(" Booking successfully");
