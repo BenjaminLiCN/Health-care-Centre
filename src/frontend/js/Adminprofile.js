@@ -52,9 +52,9 @@ $(document).ready(function() {
                     wrappedData.crossDomain = true;
                     $.ajax({
                         url: wrappedData.url,
-                            type: wrappedData.type,
-                            data : wrappedData.data,
-                            dataType: "json",
+                        type: wrappedData.type,
+                        data : wrappedData.data,
+                        dataType: "json",
                         crossDomain : true,
                         success: function (data) {
                             $.each(data, function(index, item){
@@ -119,8 +119,8 @@ $(document).ready(function() {
                     wrappedData.crossDomain = true;
                     $.ajax({
                         url: wrappedData.url,
-                            type: wrappedData.type,
-                            data : wrappedData.data,
+                        type: wrappedData.type,
+                        data : wrappedData.data,
                         crossDomain : true,
                         dataType: "json",
                         success: function (data) {
@@ -185,9 +185,9 @@ $(document).ready(function() {
                     wrappedData.crossDomain = true;
                     $.ajax({
                         url: wrappedData.url,
-                            type: wrappedData.type,
-                            data : wrappedData.data,
-                            dataType: "json",
+                        type: wrappedData.type,
+                        data : wrappedData.data,
+                        dataType: "json",
                         success: function (data) {
                             $.each(data, function(index, item){
                                 $(divchiropractor_schedule).append(
@@ -248,9 +248,9 @@ $(document).ready(function() {
 
                 $.ajax({
                     url: wrappedData.url,
-                            type: wrappedData.type,
-                            data : wrappedData.data,
-                            dataType: "json",
+                    type: wrappedData.type,
+                    data : wrappedData.data,
+                    dataType: "json",
                     crossDomain : true,
                     success: function (data) {
                         alert(" Booking successfully");
@@ -282,8 +282,8 @@ $(document).ready(function() {
             wrappedData.crossDomain = true;
             $.ajax({
                 url: wrappedData.url,
-                            type: wrappedData.type,
-                            data : wrappedData.data,
+                type: wrappedData.type,
+                data : wrappedData.data,
                 data : JSON.stringify(wrappedData),
                 crossDomain : true,
                 success: function (data) {
@@ -307,7 +307,7 @@ $(document).ready(function() {
                 "email":$("#textinput2").val(),
                 "name": $("#textinput1").val(),
                 "number":"1111",
-                "type":options.val().toLowerCase()    
+                "type":options.val().toLowerCase()
             }
             console.log(pro);
             var wrappedData = {};
@@ -365,6 +365,7 @@ $(document).ready(function() {
                 var divbooking_history = document.getElementById("view_booking");
                 $(divbooking_history).append(
                     "<tr>"
+                    +"<td>" + item.userDO.name + "</td>"
                     +"<td>" + item.professionalDO.name + "</td>"
                     +"<td>" + item.professionalDO.charge + "</td>"
                     +"<td>" + item.scheduleDate + "</td>"
@@ -385,6 +386,15 @@ $(document).ready(function() {
 
         }
 
+    })
+
+
+    $(function(){
+        $(document).on("click", ".log_out", function(){
+            window.localStorage.clear();
+            window.location.reload();
+            window.location = 'login.html'
+        })
     })
 
 

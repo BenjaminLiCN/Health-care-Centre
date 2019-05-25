@@ -20,211 +20,211 @@ $(document).ready(function() {
         crossDomain : true,
         success: function (data) {
             console.log(data);
-                $.each(data, function(index, item){
-                    if(item.type == 'podiatrist'){
-                        var divA = document.getElementById("tbody_Podiatrist");
-                        $(divA).append(
-                            "<div class='table_content_style'>"
-                            +"<table class='table table-striped' >"
-                            +"<div class='detail row'>" + "ID" + "<div class='detail_item_1'>" + item.id + "</div></div>"
-                            +"<div class='detail row'>" + "Name" + "<div class='detail_item_2'>" + item.name + "</div></div>"
-                            +"<div class='detail row'>" + "Per-hour"+ "  " + "Charge" + "<div class='detail_item_3'>" + item.charge + "</div></div>"
+            $.each(data, function(index, item){
+                if(item.type == 'podiatrist'){
+                    var divA = document.getElementById("tbody_Podiatrist");
+                    $(divA).append(
+                        "<div class='table_content_style'>"
+                        +"<table class='table table-striped' >"
+                        +"<div class='detail row'>" + "ID" + "<div class='detail_item_1'>" + item.id + "</div></div>"
+                        +"<div class='detail row'>" + "Name" + "<div class='detail_item_2'>" + item.name + "</div></div>"
+                        +"<div class='detail row'>" + "Per-hour"+ "  " + "Charge" + "<div class='detail_item_3'>" + item.charge + "</div></div>"
 
-                            +"<thead><tr>"
-                            +"<th>" + "ScheduleDate" + "</th>"
-                            +"<th>" + "PeriodStart" + "</th>"
-                            +"<th>" + "PeriodEnd" + "</th>"
-                            +"<th>" + "Book" + "now" + "</th>"
-                            +"</tr></thead>"
-                            +"<tbody class='tbody_Poduatrist_scheduleDate' value='"+item.id+"'></tbody>"
-                            +"</table>"
-                            +"</div>"
-                        );
+                        +"<thead><tr>"
+                        +"<th>" + "ScheduleDate" + "</th>"
+                        +"<th>" + "Start Period" + "</th>"
+                        +"<th>" + "End Period" + "</th>"
+                        +"<th>" + "Book" + " Now" + "</th>"
+                        +"</tr></thead>"
+                        +"<tbody class='tbody_Poduatrist_scheduleDate' value='"+item.id+"'></tbody>"
+                        +"</table>"
+                        +"</div>"
+                    );
 
-                        var professional_id=item.id
-                        var baseUrl = 'http://18.191.27.125:8081/booking/professional/availabletime/';
-                        var a = item.id;
-                        var finalUrl = baseUrl + a;
-                        var divB = $("tbody[value='"+item.id+"']")
+                    var professional_id=item.id
+                    var baseUrl = 'http://18.191.27.125:8081/booking/professional/availabletime/';
+                    var a = item.id;
+                    var finalUrl = baseUrl + a;
+                    var divB = $("tbody[value='"+item.id+"']")
 
-                        var wrappedData = {};
-                        wrappedData.dataType = "json";
-                        wrappedData.data = "";
-                        wrappedData.url = finalUrl;
-                        wrappedData.type = "GET";
-                        wrappedData.crossDomain = true;
-                        $.ajax({
-                            url: wrappedData.url,
-                            type: wrappedData.type,
-                            data : wrappedData.data,
-                            dataType: "json",
-                            crossDomain : true,
-                            success: function (data) {
-                                $.each(data, function(index, item){
-                                    $(divB).append(
-                                        "<tr>"
-                                        +"<td>" + item.scheduleDate + "</td>"
-                                        +"<td>" + item.periodStart+ ":00" + "</td>"
-                                        +"<td>" + item.periodEnd + ":00" + "</td>"
-                                        +"<td>" + " <button type='button' id='"+item.id+"' class='btn btn-success book_button'  data-toggle='modal' data-target='#myModal'>"
-                                        + "Book Now"
-                                        +"</button>" + "</td>"
-                                        +"</tr>"
+                    var wrappedData = {};
+                    wrappedData.dataType = "json";
+                    wrappedData.data = "";
+                    wrappedData.url = finalUrl;
+                    wrappedData.type = "GET";
+                    wrappedData.crossDomain = true;
+                    $.ajax({
+                        url: wrappedData.url,
+                        type: wrappedData.type,
+                        data : wrappedData.data,
+                        dataType: "json",
+                        crossDomain : true,
+                        success: function (data) {
+                            $.each(data, function(index, item){
+                                $(divB).append(
+                                    "<tr>"
+                                    +"<td>" + item.scheduleDate + "</td>"
+                                    +"<td>" + item.periodStart+ ":00" + "</td>"
+                                    +"<td>" + item.periodEnd + ":00" + "</td>"
+                                    +"<td>" + " <button type='button' id='"+item.id+"' class='btn btn-success book_button'  data-toggle='modal' data-target='#myModal'>"
+                                    + "Book Now"
+                                    +"</button>" + "</td>"
+                                    +"</tr>"
 
-                                    );
-                                    $('button[id="'+item.id+'"]').data("scheduleDate",item.scheduleDate)
-                                    $('button[id="'+item.id+'"]').data("PeriodStart",item.periodStart)
-                                    $('button[id="'+item.id+'"]').data("PeriodEnd",item.periodEnd)
-                                    $('button[id="'+item.id+'"]').data("professional_id",professional_id)
-
-
-                                    if(item.isBooked  == 1){
-                                        $('button[id="'+item.id+'"]').prop('disabled', true);
-                                    }
-                                })
-
-                            }
-
-                        })
-                    }
-
-                    if(item.type == 'naturopath'){
-                        var divnaturopath = document.getElementById("tbody_naturopath");
-                        $(divnaturopath).append(
-                            "<div class='table_content_style'>"
-                            +"<table class='table table-striped' >"
-                            +"<div class='detail row'>" + "ID" + "<div class='detail_item_1'>" + item.id + "</div></div>"
-                            +"<div class='detail row'>" + "Name" + "<div class='detail_item_2'>" + item.name + "</div></div>"
-                            +"<div class='detail row'>" + "Per-hour"+ "  " + "Charge" + "<div class='detail_item_3'>" + item.charge + "</div></div>"
-
-                            +"<thead><tr>"
-                            +"<th>" + "ScheduleDate" + "</th>"
-                            +"<th>" + "PeriodStart" + "</th>"
-                            +"<th>" + "PeriodEnd" + "</th>"
-                            +"<th>" + "Book" + "now" + "</th>"
-                            +"</tr></thead>"
-                            +"<tbody class='tbody_naturopath_scheduleDate'  value='"+item.id+"'></tbody>"
-                            +"</table>"
-                            +"</div>"
-                        );
-
-                        var professional_id=item.id
-                        var baseUrl = 'http://18.191.27.125:8081/booking/professional/availabletime/';
-                        var a = item.id;
-                        var finalUrl = baseUrl + a;
-                        var divnaturopath_schedule = $("tbody[value='"+item.id+"']")
-                        var wrappedData = {};
-                        wrappedData.dataType = "json";
-                        wrappedData.data = "";
-                        wrappedData.url = finalUrl;
-                        wrappedData.type = "GET";
-                        wrappedData.crossDomain = true;
-                        $.ajax({
-                            url: wrappedData.url,
-                            type: wrappedData.type,
-                            data : wrappedData.data,
-                            dataType: "json",
-                            crossDomain : true,
-                            success: function (data) {
-                                $.each(data, function(index, item){
-                                    $(divnaturopath_schedule).append(
-                                        "<tr>"
-                                        +"<td>" + item.scheduleDate + "</td>"
-                                        +"<td>" + item.periodStart + ":00" + "</td>"
-                                        +"<td>" + item.periodEnd +  ":00" +"</td>"
-                                        +"<td>" + " <button type='button' id='"+item.id+"' class='btn btn-success book_button'  data-toggle='modal' data-target='#myModal'>"
-                                        + "Book Now"
-                                        +"</button>" + "</td>"
-                                        +"</tr>"
-
-                                    );
-                                    $('button[id="'+item.id+'"]').data("scheduleDate",item.scheduleDate)
-                                    $('button[id="'+item.id+'"]').data("PeriodStart",item.periodStart)
-                                    $('button[id="'+item.id+'"]').data("PeriodEnd",item.periodEnd)
-                                    $('button[id="'+item.id+'"]').data("professional_id",professional_id)
+                                );
+                                $('button[id="'+item.id+'"]').data("scheduleDate",item.scheduleDate)
+                                $('button[id="'+item.id+'"]').data("PeriodStart",item.periodStart)
+                                $('button[id="'+item.id+'"]').data("PeriodEnd",item.periodEnd)
+                                $('button[id="'+item.id+'"]').data("professional_id",professional_id)
 
 
-                                    if(item.isBooked  == 1){
-                                        $('button[id="'+item.id+'"]').prop('disabled', true);
-                                    }
-                                })
+                                if(item.isBooked  == 1){
+                                    $('button[id="'+item.id+'"]').prop('disabled', true);
+                                }
+                            })
 
-                            }
+                        }
 
-                        })
-                    }
+                    })
+                }
 
-                    if(item.type == 'chiropractor'){
-                        var divchiropractor = document.getElementById("tbody_chiropractor");
-                        $(divchiropractor).append(
-                            "<div class='table_content_style'>"
-                            +"<table class='table table-striped' >"
-                            +"<div class='detail row'>" + "ID" + "<div class='detail_item_1'>" + item.id + "</div></div>"
-                            +"<div class='detail row'>" + "Name" + "<div class='detail_item_2'>" + item.name + "</div></div>"
-                            +"<div class='detail row'>" + "Per-hour"+ "  " + "Charge" + "<div class='detail_item_3'>" + item.charge + "</div></div>"
+                if(item.type == 'naturopath'){
+                    var divnaturopath = document.getElementById("tbody_naturopath");
+                    $(divnaturopath).append(
+                        "<div class='table_content_style'>"
+                        +"<table class='table table-striped' >"
+                        +"<div class='detail row'>" + "ID" + "<div class='detail_item_1'>" + item.id + "</div></div>"
+                        +"<div class='detail row'>" + "Name" + "<div class='detail_item_2'>" + item.name + "</div></div>"
+                        +"<div class='detail row'>" + "Per-hour"+ "  " + "Charge" + "<div class='detail_item_3'>" + item.charge + "</div></div>"
 
-                            +"<thead><tr>"
-                            +"<th>" + "ScheduleDate" + "</th>"
-                            +"<th>" + "PeriodStart" + "</th>"
-                            +"<th>" + "PeriodEnd" + "</th>"
-                            +"<th>" + "Book" + "now" + "</th>"
-                            +"</tr></thead>"
-                            +"<tbody class='tbody_chiropractor_scheduleDate' value='"+item.id+"'></tbody>"
-                            +"</table>"
-                            +"</div>"
-                        );
+                        +"<thead><tr>"
+                        +"<th>" + "ScheduleDate" + "</th>"
+                        +"<th>" + "Start Period" + "</th>"
+                        +"<th>" + "End Period" + "</th>"
+                        +"<th>" + "Book" + "now" + "</th>"
+                        +"</tr></thead>"
+                        +"<tbody class='tbody_naturopath_scheduleDate'  value='"+item.id+"'></tbody>"
+                        +"</table>"
+                        +"</div>"
+                    );
 
-                        var professional_id=item.id
-                        var baseUrl = 'http://18.191.27.125:8081/booking/professional/availabletime/';
-                        var a = item.id;
-                        var finalUrl = baseUrl + a;
-                        var divchiropractor_schedule = $("tbody[value='"+item.id+"']")
-                        var wrappedData = {};
-                        wrappedData.dataType = "json";
-                        wrappedData.data = "";
-                        wrappedData.url = finalUrl;
-                        wrappedData.type = "GET";
-                        wrappedData.crossDomain = true;
-                        $.ajax({
-                            url: wrappedData.url,
-                            type: wrappedData.type,
-                            data : wrappedData.data,
-                            dataType: "json",
-                            crossDomain: true,
-                            success: function (data) {
-                                $.each(data, function(index, item){
-                                    $(divchiropractor_schedule).append(
-                                        "<tr>"
-                                        +"<td>" + item.scheduleDate +  "</td>"
-                                        +"<td>" + item.periodStart + ":00" + "</td>"
-                                        +"<td>" + item.periodEnd + ":00" +"</td>"
-                                        +"<td>" + " <button type='button' id='"+item.id+"' class='btn btn-success book_button'  data-toggle='modal' data-target='#myModal'>"
-                                        + "Book Now"
-                                        +"</button>" + "</td>"
-                                        +"</tr>"
+                    var professional_id=item.id
+                    var baseUrl = 'http://18.191.27.125:8081/booking/professional/availabletime/';
+                    var a = item.id;
+                    var finalUrl = baseUrl + a;
+                    var divnaturopath_schedule = $("tbody[value='"+item.id+"']")
+                    var wrappedData = {};
+                    wrappedData.dataType = "json";
+                    wrappedData.data = "";
+                    wrappedData.url = finalUrl;
+                    wrappedData.type = "GET";
+                    wrappedData.crossDomain = true;
+                    $.ajax({
+                        url: wrappedData.url,
+                        type: wrappedData.type,
+                        data : wrappedData.data,
+                        dataType: "json",
+                        crossDomain : true,
+                        success: function (data) {
+                            $.each(data, function(index, item){
+                                $(divnaturopath_schedule).append(
+                                    "<tr>"
+                                    +"<td>" + item.scheduleDate + "</td>"
+                                    +"<td>" + item.periodStart + ":00" + "</td>"
+                                    +"<td>" + item.periodEnd +  ":00" +"</td>"
+                                    +"<td>" + " <button type='button' id='"+item.id+"' class='btn btn-success book_button'  data-toggle='modal' data-target='#myModal'>"
+                                    + "Book Now"
+                                    +"</button>" + "</td>"
+                                    +"</tr>"
 
-                                    );
-                                    $('button[id="'+item.id+'"]').data("scheduleDate",item.scheduleDate)
-                                    $('button[id="'+item.id+'"]').data("PeriodStart",item.periodStart)
-                                    $('button[id="'+item.id+'"]').data("PeriodEnd",item.periodEnd)
-                                    $('button[id="'+item.id+'"]').data("professional_id",professional_id)
-
-
-                                    if(item.isBooked  == 1){
-                                        $('button[id="'+item.id+'"]').prop('disabled', true);
-                                    }
-                                })
-
-                            }
-
-                        })
-                    }
+                                );
+                                $('button[id="'+item.id+'"]').data("scheduleDate",item.scheduleDate)
+                                $('button[id="'+item.id+'"]').data("PeriodStart",item.periodStart)
+                                $('button[id="'+item.id+'"]').data("PeriodEnd",item.periodEnd)
+                                $('button[id="'+item.id+'"]').data("professional_id",professional_id)
 
 
+                                if(item.isBooked  == 1){
+                                    $('button[id="'+item.id+'"]').prop('disabled', true);
+                                }
+                            })
+
+                        }
+
+                    })
+                }
+
+                if(item.type == 'chiropractor'){
+                    var divchiropractor = document.getElementById("tbody_chiropractor");
+                    $(divchiropractor).append(
+                        "<div class='table_content_style'>"
+                        +"<table class='table table-striped' >"
+                        +"<div class='detail row'>" + "ID" + "<div class='detail_item_1'>" + item.id + "</div></div>"
+                        +"<div class='detail row'>" + "Name" + "<div class='detail_item_2'>" + item.name + "</div></div>"
+                        +"<div class='detail row'>" + "Per-hour"+ "  " + "Charge" + "<div class='detail_item_3'>" + item.charge + "</div></div>"
+
+                        +"<thead><tr>"
+                        +"<th>" + "ScheduleDate" + "</th>"
+                        +"<th>" + "Start Period" + "</th>"
+                        +"<th>" + "End Period" + "</th>"
+                        +"<th>" + "Book" + "now" + "</th>"
+                        +"</tr></thead>"
+                        +"<tbody class='tbody_chiropractor_scheduleDate' value='"+item.id+"'></tbody>"
+                        +"</table>"
+                        +"</div>"
+                    );
+
+                    var professional_id=item.id
+                    var baseUrl = 'http://18.191.27.125:8081/booking/professional/availabletime/';
+                    var a = item.id;
+                    var finalUrl = baseUrl + a;
+                    var divchiropractor_schedule = $("tbody[value='"+item.id+"']")
+                    var wrappedData = {};
+                    wrappedData.dataType = "json";
+                    wrappedData.data = "";
+                    wrappedData.url = finalUrl;
+                    wrappedData.type = "GET";
+                    wrappedData.crossDomain = true;
+                    $.ajax({
+                        url: wrappedData.url,
+                        type: wrappedData.type,
+                        data : wrappedData.data,
+                        dataType: "json",
+                        crossDomain: true,
+                        success: function (data) {
+                            $.each(data, function(index, item){
+                                $(divchiropractor_schedule).append(
+                                    "<tr>"
+                                    +"<td>" + item.scheduleDate +  "</td>"
+                                    +"<td>" + item.periodStart + ":00" + "</td>"
+                                    +"<td>" + item.periodEnd + ":00" +"</td>"
+                                    +"<td>" + " <button type='button' id='"+item.id+"' class='btn btn-success book_button'  data-toggle='modal' data-target='#myModal'>"
+                                    + "Book Now"
+                                    +"</button>" + "</td>"
+                                    +"</tr>"
+
+                                );
+                                $('button[id="'+item.id+'"]').data("scheduleDate",item.scheduleDate)
+                                $('button[id="'+item.id+'"]').data("PeriodStart",item.periodStart)
+                                $('button[id="'+item.id+'"]').data("PeriodEnd",item.periodEnd)
+                                $('button[id="'+item.id+'"]').data("professional_id",professional_id)
 
 
-                })
-            }
+                                if(item.isBooked  == 1){
+                                    $('button[id="'+item.id+'"]').prop('disabled', true);
+                                }
+                            })
+
+                        }
+
+                    })
+                }
+
+
+
+
+            })
+        }
 
     })
 
@@ -234,7 +234,7 @@ $(document).ready(function() {
             var PeriodStart =  $(this).data().PeriodStart;
             var periodEnd =  $(this).data().PeriodEnd;
             var professionalId =  $(this).data().professional_id;
-            
+
             $(document).on("click", ".submit_booking", function (){
                 var booking = {
                     userId: parseInt(window.localStorage.id),
@@ -317,15 +317,23 @@ $(document).ready(function() {
             wrappedData.crossDomain = true;
             $.ajax({
                 url: wrappedData.url,
-                            type: wrappedData.type,
-                            data : wrappedData.data,
-                            dataType: "json",
+                type: wrappedData.type,
+                data : wrappedData.data,
+                dataType: "json",
                 crossDomain : true,
                 success: function (data) {
                     alert("Cancel Successfully");
                     window.location.reload();
                 }
             })
+        })
+    })
+
+    $(function(){
+        $(document).on("click", ".log_out", function(){
+            window.localStorage.clear();
+            window.location.reload();
+            window.location = 'login.html'
         })
     })
 

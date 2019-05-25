@@ -25,13 +25,13 @@ $(document).ready(function() {
             },
             error: function(XMLHttpRequest, textStatus, errorThrown){
                 if(XMLHttpRequest.status==500)
-                    alert("Internal server error! 500");
-                  else if(XMLHttpRequest.status==200){
+                    alert("Incorrect username/password");
+                else if(XMLHttpRequest.status==200){
                     alert("200 but not data!")
-                  }else{
-                    alert("Internal server error! else");
+                }else{
+                    alert("Incorrect username/password");
                     console.log(XMLHttpRequest.responseText);
-                  }
+                }
             }
 
         })
