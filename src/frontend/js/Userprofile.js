@@ -234,29 +234,23 @@ $(document).ready(function() {
             var PeriodStart =  $(this).data().PeriodStart;
             var periodEnd =  $(this).data().PeriodEnd;
             var professionalId =  $(this).data().professional_id;
-            var booking = {
-                userId:window.localStorage.id,
-                professionalId:professionalId,
-                scheduledDate:ScheduleDate,
-                scheduleStart: PeriodStart,
-                scheduleEnd:periodEnd,
-                description: $(".book_message").val()
-            }
-            var wrappedData = {
-                "url" : "http://18.191.27.125:8081/booking",
-                "type" : "POST",
-                "data" : booking,
-                "dataType" : "json",
-                "crossDomain": true
-            }
-
+            
             $(document).on("click", ".submit_booking", function (){
+                var booking = {
+                    userId:window.localStorage.id,
+                    professionalId:professionalId,
+                    scheduledDate:ScheduleDate,
+                    scheduleStart: PeriodStart,
+                    scheduleEnd:periodEnd,
+                    description: $(".book_message").val()
+                }
                 console.log(booking)
                 $.ajax({
-                    url: wrappedData.url,
-                            type: wrappedData.type,
-                            data : booking,
-                    dataType : 'json',crossDomain : true,
+                    url: "http://18.191.27.125:8081/booking/",
+                    type: "POST",
+                    data : booking,
+                    dataType : 'json',
+                    crossDomain : true,
                     success: function (data) {
                         alert(" Booking successfully");
                         window.location.reload();
@@ -272,7 +266,7 @@ $(document).ready(function() {
     var wrappedData = {};
     wrappedData.dataType = "json";
     wrappedData.data = "";
-    wrappedData.url = "http://18.191.27.125:8081/booking/user/1";
+    wrappedData.url = "http://18.191.27.125:8081/booking/user/"+window.localStorage.id;
     wrappedData.type = "GET";
     wrappedData.crossDomain = true;
     $.ajax({

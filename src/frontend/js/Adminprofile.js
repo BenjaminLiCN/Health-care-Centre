@@ -353,10 +353,10 @@ $(document).ready(function() {
     wrappedData.type = "GET";
     wrappedData.crossDomain = true;
     $.ajax({
-        url: wrappedData.url,
-        type: wrappedData.type,
-        data : wrappedData.data,
-        dataType: "json",
+        url: 'http://18.191.27.125:8081/booking/',
+        type: 'GET',
+        data : "",
+        //dataType: "json",
         crossDomain : true,
         success: function (data) {
             console.log(data)
