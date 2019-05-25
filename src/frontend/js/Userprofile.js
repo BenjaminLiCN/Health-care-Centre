@@ -235,12 +235,12 @@ $(document).ready(function() {
             var periodEnd =  $(this).data().PeriodEnd;
             var professionalId =  $(this).data().professional_id;
             var booking = {
-                "userId":window.localStorage.id,
-                "professionalId":professionalId,
-                "scheduledDate":ScheduleDate,
-                "scheduleStart": PeriodStart,
-                "scheduleEnd":periodEnd,
-                "description": $(".book_message").val()
+                userId:window.localStorage.id,
+                professionalId:professionalId,
+                scheduledDate:ScheduleDate,
+                scheduleStart: PeriodStart,
+                scheduleEnd:periodEnd,
+                description: $(".book_message").val()
             }
             console.log(booking)
             var wrappedData = {
