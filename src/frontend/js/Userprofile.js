@@ -237,10 +237,10 @@ $(document).ready(function() {
             
             $(document).on("click", ".submit_booking", function (){
                 var booking = {
-                    userId:window.localStorage.id,
+                    userId: parseInt(window.localStorage.id),
                     professionalId:professionalId,
                     scheduledDate:ScheduleDate,
-                    scheduleStart: PeriodStart,
+                    scheduleStart:PeriodStart,
                     scheduleEnd:periodEnd,
                     description: $(".book_message").val()
                 }
