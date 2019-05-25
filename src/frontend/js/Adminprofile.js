@@ -393,7 +393,7 @@ $(document).ready(function() {
         $(document).on("click", ".log_out", function(){
             window.localStorage.clear();
             window.location.reload();
-            window.location = 'login.html'
+            window.location = 'http://18.191.27.125/html/Login.html'
         })
     })
 
