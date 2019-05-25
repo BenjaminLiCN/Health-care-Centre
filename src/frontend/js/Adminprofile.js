@@ -365,7 +365,7 @@ $(document).ready(function() {
                 var divbooking_history = document.getElementById("view_booking");
                 $(divbooking_history).append(
                     "<tr>"
-                    +"<td>" + item.userDO.name + "</td>"
+                    +"<td>" + item.userDO.username + "</td>"
                     +"<td>" + item.professionalDO.name + "</td>"
                     +"<td>" + item.professionalDO.charge + "</td>"
                     +"<td>" + item.scheduleDate + "</td>"
